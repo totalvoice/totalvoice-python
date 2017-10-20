@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-from setuptools import setup
+#from distutils.core import setup
+from setuptools import setup, find_packages
 
 setup(
     name='totalvoice-python',
-    version='0.0.1',
+    version='0.0.6',
     url='https://github.com/totalvoice/totalvoice-python',
     license='MIT License',
     author='Carlos Henrique dos Santos',
     author_email='carlos@totalvoice.com.br',
     keywords='totalvoice biblioteca python',
     description=u'Biblioteca para utilização da API da Totalvoice em Python',
-    packages=['totalvoice_python'],
-    install_requires=[],
-)
+    packages=find_packages(),
+    )
