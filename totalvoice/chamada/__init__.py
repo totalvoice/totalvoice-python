@@ -1,8 +1,8 @@
 # coding=utf-8
 
-from cliente import Cliente
-from helper import utils
-from helper.routes import Routes
+from totalvoice.cliente import Cliente
+from totalvoice.helper import utils
+from totalvoice.helper.routes import Routes
 import json, requests
 
 class Chamada(object):
@@ -128,7 +128,6 @@ class Chamada(object):
         ID da chamada ativa.
         """
         host = self.cliente.host + Routes.CHAMADA + "/" + id
-        print host
         return self.__get(host)
 
     def getGravacaoChamada(self, id):

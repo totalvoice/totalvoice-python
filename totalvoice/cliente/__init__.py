@@ -1,3 +1,5 @@
+# coding=utf-8
+
 class Cliente(object):
       
     access_token = None
