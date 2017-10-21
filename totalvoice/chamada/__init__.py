@@ -13,17 +13,17 @@ class Chamada(object):
 
     def ligar(self, numero_origem, numero_destino, data_criacao=None, gravar_audio=False, bina_origem=None, bina_destino=None, tags=None):
         """
-        Descrição:
-        ----------
+        :Descrição:
+
         Essa é uma função para realizar uma chamda
         entre dois números de telefone.
 
-        Utilização:
-        ----------
+        :Utilização:
+
         ligar(numero_origem, numero_destino, data_criacao, gravar_audio, bina_origem, bina_destino, tags)
 
-        Parâmetros:
-        ----------
+        :Parâmetros:
+        
         - numero_origem:
         Número do telefone de origem (Perna A).
 
@@ -66,16 +66,17 @@ class Chamada(object):
         """
         (BETA - EM TESTES)
         ----------
-        Descrição:
-        ----------
+
+        :Descrição:
+        
         Função para escutar uma chamada, passa o id, número e modo e é possível escutar a chamada.
 
-        Utilização:
-        ----------
+        :Utilização:
+        
         escutaChamada(id, numero, modo)
 
-        Parâmetros:
-        ----------
+        :Parâmetros:
+
         - id:
             ID da chamada ativa.
 
@@ -95,16 +96,16 @@ class Chamada(object):
 
     def deletar(self, id):
         """
-        Descrição:
-        ----------
+        :Descrição:
+
         Função para deletar uma chamada ativa.
 
-        Utilização:
-        ----------
+        :Utilização:
+
         deletar(id)
 
-        Parâmetros:
-        ----------
+        :Parâmetros:
+
         - id:
         ID da chamada ativa.
         """
@@ -114,16 +115,16 @@ class Chamada(object):
     
     def getChamada(self, id):
         """
-        Descrição:
-        ----------
+        :Descrição:
+
         Função para buscar as informações de uma chamada ativa.
 
-        Utilização:
-        ----------
+        :Utilização:
+
         getChamada(id)
 
-        Parâmetros:
-        ----------
+        :Parâmetros:
+
         - id:
         ID da chamada ativa.
         """
@@ -132,16 +133,16 @@ class Chamada(object):
 
     def getGravacaoChamada(self, id):
         """
-        Descrição:
-        ----------
+        :Descrição:
+
         Função para pegar a URL de gravação da chamada.
 
-        Utilização:
-        ----------
+        :Utilização:
+
         getGravacaoChamada(id)
 
-        Parâmetros:
-        ----------
+        :Parâmetros:
+
         - id:
         ID da chamada ativa.
         """
@@ -150,16 +151,16 @@ class Chamada(object):
 
     def getRelatorioChamada(self, data_inicio, data_fim):
         """
-        Descrição:
-        ----------
+        :Descrição:
+        
         Função para pegar o relatório de chamadas.
 
-        Utilização:
-        ----------
+        :Utilização:
+
         getRelatorioChamada(data_inicio, data_fim)
 
-        Parâmetros:
-        ----------
+        :Parâmetros:
+
         - data_inicio:
         Data início do relatório (2016-03-30T17:15:59-03:00)
         format UTC
