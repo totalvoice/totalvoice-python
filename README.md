@@ -15,7 +15,7 @@ Segue abaixo a forma de utilização dos métodos da API da totalvoice!
 Módulo responsável por criação de chamadas, relatórios de chamadas, url da gravação, etc.
 
 
-```
+```python
 from totalvoice import *
 
 cliente = Cliente("SEU_TOKEN", 'HOST') #ex: api.totalvoice.com.br
