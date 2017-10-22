@@ -65,12 +65,12 @@ Módulo responsável por criação de SMS, relatórios.
 from totalvoice import *
 
 cliente = Cliente("SEU_TOKEN", 'HOST') #ex: api.totalvoice.com.br
-chamada = Sms(cliente)
+sms = Sms(cliente)
 
 #Cria sms
 numero_destino = "48999999999"
 mensagem = "teste envio sms"
-response = chamada.ligar(numero_destino, mensagem)
+response = sms.enviar_sms(numero_destino, mensagem)
 print(response)
 
 #Get sms
