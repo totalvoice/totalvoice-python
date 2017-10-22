@@ -58,6 +58,36 @@ print(response)
 
 ```
 
+### SMS
+Módulo responsável por criação de SMS, relatórios.
+
+```
+from totalvoice import *
+
+cliente = Cliente("SEU_TOKEN", 'HOST') #ex: api.totalvoice.com.br
+chamada = Sms(cliente)
+
+#Cria sms
+numero_destino = "48999999999"
+mensagem = "teste envio sms"
+response = chamada.ligar(numero_destino, mensagem)
+print(response)
+
+#Get sms
+id = "1958"
+response = sms.getSms(id)
+print(response)
+
+#Relatório de sms
+data_inicio = "2016-03-30T17:15:59-03:00"
+data_fim = "2016-03-30T17:15:59-03:00"
+response = sms.getRelatorioSms(data_inicio, data_fim)
+print(response)
+
+```
+
+
+
 ## Licença
 
 MIT

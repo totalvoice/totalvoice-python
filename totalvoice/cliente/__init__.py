@@ -1,4 +1,5 @@
 # coding=utf-8
+from totalvoice.helper import utils
 
 class Cliente(object):
       
@@ -7,4 +8,4 @@ class Cliente(object):
 
     def __init__(self, access_token, host):
         self.access_token = access_token
-        self.host = host
+        self.host = utils.buildHost(host)

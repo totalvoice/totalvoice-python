@@ -7,3 +7,8 @@ def buildHeader(access_token):
     header.update({'Accept' :'application/json' })
     header.update({'Access-Token' : access_token })
     return header
+
+def buildHost(host):
+    if "http" not in host:
+        return "https://"+host
+    return host
