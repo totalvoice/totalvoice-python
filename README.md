@@ -61,7 +61,7 @@ print(response)
 ### SMS
 Módulo responsável por criação de SMS, relatórios.
 
-```
+```python
 from totalvoice import *
 
 cliente = Cliente("SEU_TOKEN", 'HOST') #ex: api.totalvoice.com.br
