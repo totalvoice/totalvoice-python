@@ -3,15 +3,16 @@
 from totalvoice.cliente import Cliente
 from totalvoice.helper import utils
 from totalvoice.helper.routes import Routes
+from totalvoice.totalvoice import Totalvoice
 import json, requests
 
-class Chamada(object):
+class Chamada(Totalvoice):
     cliente = None
 
     def __init__(self, cliente):
         self.cliente = cliente
 
-    def ligar(self, numero_origem, numero_destino, data_criacao=None, gravar_audio=False, bina_origem=None, bina_destino=None, tags=None):
+    def enviar(self, numero_origem, numero_destino, data_criacao=None, gravar_audio=False, bina_origem=None, bina_destino=None, tags=None):
         """
         :Descrição:
 
@@ -20,7 +21,7 @@ class Chamada(object):
 
         :Utilização:
 
-        ligar(numero_origem, numero_destino, data_criacao, gravar_audio, bina_origem, bina_destino, tags)
+        enviar(numero_origem, numero_destino, data_criacao, gravar_audio, bina_origem, bina_destino, tags)
 
         :Parâmetros:
         
@@ -46,21 +47,10 @@ class Chamada(object):
         - tags:
         Campo para passar informações para capturar em webhooks.
         """
-        host = self.cliente.host + Routes.CHAMADA
+        host = self.buildHost(self.cliente.host, Routes.CHAMADA)
         data = self.__buildChamada(numero_origem, numero_destino, data_criacao, gravar_audio, bina_origem, bina_destino, tags)
         response = requests.post(host, headers=utils.buildHeader(self.cliente.access_token), data=data)
         return response.content
-
-    def __buildChamada(self, numero_origem, numero_destino, data_criacao, gravar_audio, bina_origem, bina_destino, tags):
-        data = {}
-        data.update({"numero_origem" : numero_origem})
-        data.update({"numero_destino" : numero_destino})
-        data.update({"data_criacao" : data_criacao})
-        data.update({"gravar_audio" : gravar_audio})
-        data.update({"bina_origem" : bina_origem})
-        data.update({"bina_destino" : bina_destino})
-        data.update({"tags" : tags})
-        return json.dumps(data)
 
     def escutaChamada(self, id, numero, modo):
         """
@@ -86,7 +76,7 @@ class Chamada(object):
         - modo:
             Modo de escuta: 1=escuta, 2=sussurro, 3=conferência.
         """
-        host = self.cliente.host + Routes.CHAMADA + id + "/escuta"
+        host = self.buildHost(self.cliente.host, Routes.CHAMADA, [id, "escuta"])
         data = {}
         data.update({"numero" : numero})
         data.update({"modo" : modo})
@@ -109,11 +99,11 @@ class Chamada(object):
         - id:
         ID da chamada ativa.
         """
-        host = self.cliente.host + Routes.CHAMADA + id
+        host = self.buildHost(self.cliente.host, Routes.CHAMADA, [id])
         response = requests.delete(host, headers=utils.buildHeader(self.cliente.access_token))
         return response.content
     
-    def getChamada(self, id):
+    def getById(self, id):
         """
         :Descrição:
 
@@ -129,7 +119,7 @@ class Chamada(object):
         ID da chamada ativa.
         """
         host = self.cliente.host + Routes.CHAMADA + "/" + id
-        return self.__get(host)
+        return self.getRequest(host)
 
     def getGravacaoChamada(self, id):
         """
@@ -146,10 +136,10 @@ class Chamada(object):
         - id:
         ID da chamada ativa.
         """
-        host = self.cliente.host + Routes.CHAMADA + id + "/gravacao"
-        return self.__get(host)
+        host = self.buildHost(self.cliente.host, Routes.CHAMADA, [id, "gravacao"])
+        return self.getRequest(host)
 
-    def getRelatorioChamada(self, data_inicio, data_fim):
+    def getRelatorio(self, data_inicio, data_fim):
         """
         :Descrição:
         
@@ -157,7 +147,7 @@ class Chamada(object):
 
         :Utilização:
 
-        getRelatorioChamada(data_inicio, data_fim)
+        getRelatorio(data_inicio, data_fim)
 
         :Parâmetros:
 
@@ -170,13 +160,17 @@ class Chamada(object):
         format UTC    
 
         """
-        host = self.cliente.host + Routes.RELATORIO
+        host = self.buildHost(self.cliente.host, Routes.CHAMADA, ["relatorio"])
         params = (('data_inicio', data_inicio),('data_fim', data_fim),)
-        return self.__get(host, params)
-        
-    def __get(self, host, params = None):
-        if params != None:
-            response = requests.get(host, headers=headers, params=params)
-        else:
-            response = requests.get(host, headers=utils.buildHeader(self.cliente.access_token))
-        return response.content
+        return self.getRequest(host, params)
+
+    def __buildChamada(self, numero_origem, numero_destino, data_criacao, gravar_audio, bina_origem, bina_destino, tags):
+        data = {}
+        data.update({"numero_origem" : numero_origem})
+        data.update({"numero_destino" : numero_destino})
+        data.update({"data_criacao" : data_criacao})
+        data.update({"gravar_audio" : gravar_audio})
+        data.update({"bina_origem" : bina_origem})
+        data.update({"bina_destino" : bina_destino})
+        data.update({"tags" : tags})
+        return json.dumps(data)
