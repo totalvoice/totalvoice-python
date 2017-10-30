@@ -7,3 +7,4 @@ class Routes(object):
     CONFERENCIA = "/conferencia"
     URA         = "/ura"
     RAMAL       = "/ramal"
+    TTS         = "/tts"
