@@ -16,7 +16,7 @@ class Chamada(Totalvoice):
         """
         :Descrição:
 
-        Essa é uma função para realizar uma chamda
+        Essa é uma função para realizar uma chamada
         entre dois números de telefone.
 
         :Utilização:
