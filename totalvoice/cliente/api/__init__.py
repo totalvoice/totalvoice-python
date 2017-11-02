@@ -2,15 +2,16 @@ from chamada import Chamada
 from tts import Tts 
 from sms import Sms
 from audio import Audio
-
+from conferencia import Conferencia
 
 class Api(object):
     
-    _cliente    = None
-    _chamada    = None
-    _tts        = None
-    _sms        = None
-    _audio      = None
+    _cliente        = None
+    _chamada        = None
+    _tts            = None
+    _sms            = None
+    _audio          = None
+    _conferencia    = None
 
     def __init__(self, cliente):
         self._cliente = cliente
@@ -38,3 +39,9 @@ class Api(object):
         if self._audio is None:
             self._audio = Audio(self._cliente)
         return self._audio
+    
+    @property
+    def conferencia(self):
+        if self._conferencia is None:
+            self._conferencia = Conferencia(self._cliente)
+        return self._conferencia

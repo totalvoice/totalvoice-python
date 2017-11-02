@@ -34,3 +34,7 @@ class Cliente(object):
     @property
     def sms(self):
         return self.api.sms
+    
+    @property
+    def conferencia(self):
+        return self.api.conferencia

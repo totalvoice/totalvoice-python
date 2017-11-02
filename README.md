@@ -119,18 +119,18 @@ from totalvoice.cliente import Cliente
 
 cliente = Cliente("SEU_TOKEN", 'HOST') #ex: api.totalvoice.com.br
 
-#Cria audio
+#Cria TTS
 numero_destino = "48999999999"
 mensagem = "Olá, esta mensagem será lida"
 response = cliente.tts.enviar(numero_destino, mensagem)
 print(response)
 
-#Get audio
+#Get TTS
 id = "1958"
 response = cliente.tts.getById(id)
 print(response)
 
-#Relatório de audio
+#Relatório de TTS
 data_inicio = "2016-03-30T17:15:59-03:00"
 data_fim = "2016-03-30T17:15:59-03:00"
 response = cliente.tts.getRelatorio(data_inicio, data_fim)
@@ -138,6 +138,30 @@ print(response)
 
 ```
 
+### Conferência
+Módulo responsável por criação de Audios.
+
+```python
+from totalvoice.cliente import Cliente
+
+cliente = Cliente("SEU_TOKEN", 'HOST') #ex: api.totalvoice.com.br
+
+#Cria conferência
+response = cliente.conferencia.criaConferencia()
+print(response)
+
+#Get conferência
+id = "1958"
+response = cliente.conferencia.getById(id)
+print(response)
+
+#Add número na conferência
+idConferencia = "15"
+numero = "48999999999"
+response = cliente.conferencia.addNumeroConferencia(idConferencia, numero)
+print(response)
+
+```
 
 
 ## Licença
