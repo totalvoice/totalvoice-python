@@ -23,7 +23,7 @@ class Api(object):
     
     @property
     def tts(self):
-        if self.tts is None:
+        if self._tts is None:
             self._tts = Tts(self._cliente)
         return self._tts
     
