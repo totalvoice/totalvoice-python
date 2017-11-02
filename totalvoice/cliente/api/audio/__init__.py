@@ -37,7 +37,7 @@ class Audio(Totalvoice):
         Número de bina para a chamada de áudio.
         """
         host = self.buildHost(self.cliente.host, Routes.AUDIO)
-        data = self.__(numero_destino, url_audio, resposta_usuario, bina)
+        data = self.__buildAudio(numero_destino, url_audio, resposta_usuario, bina)
         response = requests.post(host, headers=utils.buildHeader(self.cliente.access_token), data=data)
         return response.content
 
