@@ -1,3 +1,5 @@
+import requests
+from helper import *
 class Totalvoice(object):
 
     cliente = None

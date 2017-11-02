@@ -22,7 +22,7 @@ class Conferencia(Totalvoice):
 
         """
         host = self.buildHost(self.cliente.host, Routes.CONFERENCIA)
-        response = requests.post(host, headers=utils.buildHeader(self.cliente.access_token), data=data)
+        response = requests.post(host, headers=utils.buildHeader(self.cliente.access_token))
         return response.content
     
     def getById(self, id):
