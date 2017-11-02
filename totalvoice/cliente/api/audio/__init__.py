@@ -7,10 +7,9 @@ from totalvoice.cliente.api.totalvoice import Totalvoice
 import json, requests
 
 class Audio(Totalvoice):
-    cliente = None
-
+    
     def __init__(self, cliente):
-        self.cliente = cliente
+        super(Audio, self).__init__(cliente)
 
     def enviar(self, numero_destino, url_audio, resposta_usuario=None, bina=None):
         """

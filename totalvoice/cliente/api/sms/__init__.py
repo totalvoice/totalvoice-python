@@ -7,10 +7,9 @@ from totalvoice.cliente.api.totalvoice import Totalvoice
 import json, requests
 
 class Sms(Totalvoice):
-    cliente = None
-
+    
     def __init__(self, cliente):
-        self.cliente = cliente
+        super(Sms, self).__init__(cliente)
 
     def enviar(self, numero_destino, mensagem, resposta_usuario=None, multi_sms=None):
         """

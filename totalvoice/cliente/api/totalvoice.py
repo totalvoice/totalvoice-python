@@ -1,5 +1,10 @@
 class Totalvoice(object):
 
+    cliente = None
+
+    def __init__(self, cliente):
+        self.cliente = cliente
+    
     def enviar(self, *args):
         raise NotImplementedError
     

@@ -6,10 +6,9 @@ from totalvoice.cliente.api.totalvoice import Totalvoice
 import json, requests
 
 class Chamada(Totalvoice):
-    cliente = None
-
+    
     def __init__(self, cliente):
-        self.cliente = cliente
+        super(Chamada, self).__init__(cliente)
 
     def enviar(self, numero_origem, numero_destino, data_criacao=None, gravar_audio=False, bina_origem=None, bina_destino=None, tags=None):
         """

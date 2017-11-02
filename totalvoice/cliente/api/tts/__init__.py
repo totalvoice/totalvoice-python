@@ -7,10 +7,9 @@ from totalvoice.cliente.api.totalvoice import Totalvoice
 import json, requests
 
 class Tts(Totalvoice):
-    cliente = None
 
     def __init__(self, cliente):
-        self.cliente = cliente
+        super(Tts, self).__init__(cliente)
 
     def enviar(self, numero_destino, mensagem, velocidade=None, resposta_usuario=None, tipo_voz=None, bina=None):
         """
