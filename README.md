@@ -139,7 +139,7 @@ print(response)
 ```
 
 ### Conferência
-Módulo responsável por criação de Audios.
+Módulo responsável por criação de Conferências.
 
 ```python
 from totalvoice.cliente import Cliente
