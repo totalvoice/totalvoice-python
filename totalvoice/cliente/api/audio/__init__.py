@@ -13,7 +13,7 @@ class Audio(Totalvoice):
         self.cliente = cliente
 
     def enviar(self, numero_destino, url_audio, resposta_usuario=None, bina=None):
-         """
+        """
         :Descrição:
 
         Essa é uma função para enviar um áudio para um número destino.
@@ -59,7 +59,7 @@ class Audio(Totalvoice):
         host = self.cliente.host + Routes.AUDIO + "/" + id
         return self.getRequest(host)
     
-     def getRelatorio(self, data_inicio, data_fim):
+    def getRelatorio(self, data_inicio, data_fim):
         """
         :Descrição:
         
