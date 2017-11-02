@@ -1,9 +1,9 @@
 # coding=utf-8
 
 from totalvoice.cliente import Cliente
-from totalvoice.helper import utils
-from totalvoice.helper.routes import Routes
-from totalvoice.totalvoice import Totalvoice
+from totalvoice.cliente.api.helper import utils
+from totalvoice.cliente.api.helper.routes import Routes
+from totalvoice.cliente.api.totalvoice import Totalvoice
 import json, requests
 
 class Sms(Totalvoice):
