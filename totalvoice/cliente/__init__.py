@@ -42,3 +42,7 @@ class Cliente(object):
     @property
     def composto(self):
         return self.api.composto
+
+    @property
+    def conta(self):
+        return self.api.conta

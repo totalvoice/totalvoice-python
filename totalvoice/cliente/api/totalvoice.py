@@ -10,7 +10,7 @@ class Totalvoice(object):
     def enviar(self, *args):
         raise NotImplementedError
     
-    def getById(self, id):
+    def get_by_id(self, id):
         raise NotImplementedError
     
     def editar(self, *args):

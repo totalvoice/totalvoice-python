@@ -5,6 +5,7 @@ from audio import Audio
 from conferencia import Conferencia
 from minhaconta import MinhaConta
 from composto import Composto
+from conta import Conta
 
 class Api(object):
     
@@ -18,6 +19,7 @@ class Api(object):
         self._conferencia    = None
         self._minha_conta    = None
         self._composto       = None
+        self._conta          = None
     
     @property
     def chamada(self):
@@ -60,3 +62,9 @@ class Api(object):
         if self._composto is None:
             self._composto = Composto(self._cliente)
         return self._composto
+
+    @property
+    def conta(self):
+        if self._conta is None:
+            self._conta = Conta(self._cliente)
+        return self._conta

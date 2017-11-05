@@ -41,7 +41,7 @@ class Sms(Totalvoice):
         response = requests.post(host, headers=utils.build_header(self.cliente.access_token), data=data)
         return response.content
 
-    def getById(self, id):
+    def get_by_id(self, id):
         """
         :Descrição:
 
@@ -49,7 +49,7 @@ class Sms(Totalvoice):
 
         :Utilização:
 
-        getById(id)
+        get_by_id(id)
 
         :Parâmetros:
 

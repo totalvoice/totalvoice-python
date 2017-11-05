@@ -25,7 +25,7 @@ class Conferencia(Totalvoice):
         response = requests.post(host, headers=utils.build_header(self.cliente.access_token))
         return response.content
     
-    def getById(self, id):
+    def get_by_id(self, id):
         """
         :Descrição:
 
@@ -33,7 +33,7 @@ class Conferencia(Totalvoice):
 
         :Utilização:
 
-        getById(id)
+        get_by_id(id)
 
         :Parâmetros:
 

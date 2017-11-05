@@ -101,7 +101,7 @@ class Chamada(Totalvoice):
         response = requests.delete(host, headers=utils.build_header(self.cliente.access_token))
         return response.content
     
-    def getById(self, id):
+    def get_by_id(self, id):
         """
         :Descrição:
 

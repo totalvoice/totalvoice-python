@@ -28,7 +28,7 @@ print(response)
 
 #Get chamada
 id = "1958"
-response = cliente.chamada.getById(id)
+response = cliente.chamada.get_by_id(id)
 print(response)
 
 #Get URL da chamada
@@ -73,7 +73,7 @@ print(response)
 
 #Get sms
 id = "1958"
-response = cliente.sms.getById(id)
+response = cliente.sms.get_by_id(id)
 print(response)
 
 #Relatório de sms
@@ -100,7 +100,7 @@ print(response)
 
 #Get audio
 id = "1958"
-response = cliente.audio.getById(id)
+response = cliente.audio.get_by_id(id)
 print(response)
 
 #Relatório de audio
@@ -127,7 +127,7 @@ print(response)
 
 #Get TTS
 id = "1958"
-response = cliente.tts.getById(id)
+response = cliente.tts.get_by_id(id)
 print(response)
 
 #Relatório de TTS
@@ -152,7 +152,7 @@ print(response)
 
 #Get conferência
 id = "1958"
-response = cliente.conferencia.getById(id)
+response = cliente.conferencia.get_by_id(id)
 print(response)
 
 #Add número na conferência
