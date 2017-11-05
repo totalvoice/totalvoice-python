@@ -3,6 +3,7 @@ from tts import Tts
 from sms import Sms
 from audio import Audio
 from conferencia import Conferencia
+from minhaconta import MinhaConta
 
 class Api(object):
     
@@ -12,6 +13,7 @@ class Api(object):
     _sms            = None
     _audio          = None
     _conferencia    = None
+    _minha_conta    = None
 
     def __init__(self, cliente):
         self._cliente = cliente
@@ -45,3 +47,9 @@ class Api(object):
         if self._conferencia is None:
             self._conferencia = Conferencia(self._cliente)
         return self._conferencia
+
+    @property
+    def minha_conta(self):
+        if self._minha_conta is None:
+            self._minha_conta = MinhaConta(self._cliente)
+        return self._minha_conta

@@ -6,7 +6,6 @@ class Cliente(object):
     access_token = None
     host = None
     _api = None
-    _chamada = None
 
     def __init__(self, access_token, host):
         self.access_token = access_token
@@ -38,3 +37,7 @@ class Cliente(object):
     @property
     def conferencia(self):
         return self.api.conferencia
+
+    @property
+    def minha_conta(self):
+        return self.api.minha_conta
