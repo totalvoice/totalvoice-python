@@ -45,9 +45,9 @@ class Chamada(Totalvoice):
         - tags:
         Campo para passar informações para capturar em webhooks.
         """
-        host = self.buildHost(self.cliente.host, Routes.CHAMADA)
+        host = self.build_host(self.cliente.host, Routes.CHAMADA)
         data = self.__buildChamada(numero_origem, numero_destino, data_criacao, gravar_audio, bina_origem, bina_destino, tags)
-        response = requests.post(host, headers=utils.buildHeader(self.cliente.access_token), data=data)
+        response = requests.post(host, headers=utils.build_header(self.cliente.access_token), data=data)
         return response.content
 
     def escutaChamada(self, id, numero, modo):
@@ -74,12 +74,12 @@ class Chamada(Totalvoice):
         - modo:
             Modo de escuta: 1=escuta, 2=sussurro, 3=conferência.
         """
-        host = self.buildHost(self.cliente.host, Routes.CHAMADA, [id, "escuta"])
+        host = self.build_host(self.cliente.host, Routes.CHAMADA, [id, "escuta"])
         data = {}
         data.update({"numero" : numero})
         data.update({"modo" : modo})
         data = json.dumps(data)
-        requests.post(host, headers=utils.buildHeader(self.cliente.access_token), data=data)
+        requests.post(host, headers=utils.build_header(self.cliente.access_token), data=data)
 
 
     def deletar(self, id):
@@ -97,8 +97,8 @@ class Chamada(Totalvoice):
         - id:
         ID da chamada ativa.
         """
-        host = self.buildHost(self.cliente.host, Routes.CHAMADA, [id])
-        response = requests.delete(host, headers=utils.buildHeader(self.cliente.access_token))
+        host = self.build_host(self.cliente.host, Routes.CHAMADA, [id])
+        response = requests.delete(host, headers=utils.build_header(self.cliente.access_token))
         return response.content
     
     def getById(self, id):
@@ -117,7 +117,7 @@ class Chamada(Totalvoice):
         ID da chamada ativa.
         """
         host = self.cliente.host + Routes.CHAMADA + "/" + id
-        return self.getRequest(host)
+        return self.get_request(host)
 
     def getGravacaoChamada(self, id):
         """
@@ -134,10 +134,10 @@ class Chamada(Totalvoice):
         - id:
         ID da chamada ativa.
         """
-        host = self.buildHost(self.cliente.host, Routes.CHAMADA, [id, "gravacao"])
-        return self.getRequest(host)
+        host = self.build_host(self.cliente.host, Routes.CHAMADA, [id, "gravacao"])
+        return self.get_request(host)
 
-    def getRelatorio(self, data_inicio, data_fim):
+    def get_relatorio(self, data_inicio, data_fim):
         """
         :Descrição:
         
@@ -145,7 +145,7 @@ class Chamada(Totalvoice):
 
         :Utilização:
 
-        getRelatorio(data_inicio, data_fim)
+        get_relatorio(data_inicio, data_fim)
 
         :Parâmetros:
 
@@ -158,9 +158,9 @@ class Chamada(Totalvoice):
         format UTC    
 
         """
-        host = self.buildHost(self.cliente.host, Routes.CHAMADA, ["relatorio"])
+        host = self.build_host(self.cliente.host, Routes.CHAMADA, ["relatorio"])
         params = (('data_inicio', data_inicio),('data_fim', data_fim),)
-        return self.getRequest(host, params)
+        return self.get_request(host, params)
 
     def __buildChamada(self, numero_origem, numero_destino, data_criacao, gravar_audio, bina_origem, bina_destino, tags):
         data = {}

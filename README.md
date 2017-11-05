@@ -39,7 +39,7 @@ print(response)
 #Relatório de chamada
 data_inicio = "2016-03-30T17:15:59-03:00"
 data_fim = "2016-03-30T17:15:59-03:00"
-response = cliente.chamada.getRelatorio(data_inicio, data_fim)
+response = cliente.chamada.get_relatorio(data_inicio, data_fim)
 print(response)
 
 #Escutar chamada (BETA)
@@ -79,7 +79,7 @@ print(response)
 #Relatório de sms
 data_inicio = "2016-03-30T17:15:59-03:00"
 data_fim = "2016-03-30T17:15:59-03:00"
-response = cliente.sms.getRelatorio(data_inicio, data_fim)
+response = cliente.sms.get_relatorio(data_inicio, data_fim)
 print(response)
 
 ```
@@ -106,7 +106,7 @@ print(response)
 #Relatório de audio
 data_inicio = "2016-03-30T17:15:59-03:00"
 data_fim = "2016-03-30T17:15:59-03:00"
-response = cliente.audio.getRelatorio(data_inicio, data_fim)
+response = cliente.audio.get_relatorio(data_inicio, data_fim)
 print(response)
 
 ```
@@ -133,7 +133,7 @@ print(response)
 #Relatório de TTS
 data_inicio = "2016-03-30T17:15:59-03:00"
 data_fim = "2016-03-30T17:15:59-03:00"
-response = cliente.tts.getRelatorio(data_inicio, data_fim)
+response = cliente.tts.get_relatorio(data_inicio, data_fim)
 print(response)
 
 ```

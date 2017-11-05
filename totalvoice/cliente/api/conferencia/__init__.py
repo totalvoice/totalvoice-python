@@ -21,8 +21,8 @@ class Conferencia(Totalvoice):
         criaConferencia()
 
         """
-        host = self.buildHost(self.cliente.host, Routes.CONFERENCIA)
-        response = requests.post(host, headers=utils.buildHeader(self.cliente.access_token))
+        host = self.build_host(self.cliente.host, Routes.CONFERENCIA)
+        response = requests.post(host, headers=utils.build_header(self.cliente.access_token))
         return response.content
     
     def getById(self, id):
@@ -41,7 +41,7 @@ class Conferencia(Totalvoice):
         ID da conferência ativa.
         """
         host = self.cliente.host + Routes.CONFERENCIA + "/" + id
-        return self.getRequest(host)
+        return self.get_request(host)
 
     def addNumeroConferencia(self, idConferencia, numero, bina=None, gravar_audio=None):
         """
@@ -69,7 +69,7 @@ class Conferencia(Totalvoice):
         """
         host = self.cliente.host + Routes.CONFERENCIA + "/" + idConferencia
         data = self.__buildConferencia(idConferencia, numero, bina, gravar_audio)
-        response = requests.post(host, headers=utils.buildHeader(self.cliente.access_token), data=data)
+        response = requests.post(host, headers=utils.build_header(self.cliente.access_token), data=data)
         return response.content
 
     def __buildConferencia(self, numero, bina, gravar_audio):

@@ -41,9 +41,9 @@ class Tts(Totalvoice):
         - bina:
         Número e telefone que aparecerá no identificador de quem receber a chamada, formato DDD + Número exemplo: 4832830151.
         """
-        host = self.buildHost(self.cliente.host, Routes.TTS)
+        host = self.build_host(self.cliente.host, Routes.TTS)
         data = self.__buildTts(numero_destino, mensagem, velocidade, resposta_usuario, tipo_voz, bina)
-        response = requests.post(host, headers=utils.buildHeader(self.cliente.access_token), data=data)
+        response = requests.post(host, headers=utils.build_header(self.cliente.access_token), data=data)
         return response.content
 
     def getById(self, id):
@@ -61,10 +61,10 @@ class Tts(Totalvoice):
         - id:
         ID do tts.
         """
-        host = self.buildHost(self.cliente.host, Routes.TTS, [id])
-        return self.getRequest(host)
+        host = self.build_host(self.cliente.host, Routes.TTS, [id])
+        return self.get_request(host)
 
-    def getRelatorio(self, data_inicio, data_fim):
+    def get_relatorio(self, data_inicio, data_fim):
         """
         :Descrição:
         
@@ -72,7 +72,7 @@ class Tts(Totalvoice):
 
         :Utilização:
 
-        getRelatorio(data_inicio, data_fim)
+        get_relatorio(data_inicio, data_fim)
 
         :Parâmetros:
 
@@ -85,9 +85,9 @@ class Tts(Totalvoice):
         format UTC    
 
         """
-        host = self.buildHost(self.cliente.host, Routes.TTS, ["relatorio"])
+        host = self.build_host(self.cliente.host, Routes.TTS, ["relatorio"])
         params = (('data_inicio', data_inicio),('data_fim', data_fim),)
-        return self.getRequest(host, params)
+        return self.get_request(host, params)
 
     def __buildTts(self, numero_destino, mensagem, velocidade, resposta_usuario, tipo_voz, bina):
         data = {}

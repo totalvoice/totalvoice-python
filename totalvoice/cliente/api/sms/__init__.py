@@ -36,9 +36,9 @@ class Sms(Totalvoice):
         Aceita SMS com mais de 160 char - ate 16.000. Envia multiplos sms para o mesmo numero (um a cada 160 char) e retorna array de ids. Default false. (Opcional)
 
         """
-        host = self.buildHost(self.cliente.host, Routes.SMS)
+        host = self.build_host(self.cliente.host, Routes.SMS)
         data = self.__buildSms(numero_destino, mensagem, resposta_usuario, multi_sms)
-        response = requests.post(host, headers=utils.buildHeader(self.cliente.access_token), data=data)
+        response = requests.post(host, headers=utils.build_header(self.cliente.access_token), data=data)
         return response.content
 
     def getById(self, id):
@@ -56,10 +56,10 @@ class Sms(Totalvoice):
         - id:
         ID do sms.
         """
-        host = self.buildHost(self.cliente.host, Routes.SMS, [id])
-        return self.getRequest(host)
+        host = self.build_host(self.cliente.host, Routes.SMS, [id])
+        return self.get_request(host)
 
-    def getRelatorio(self, data_inicio, data_fim):
+    def get_relatorio(self, data_inicio, data_fim):
         """
         :Descrição:
         
@@ -67,7 +67,7 @@ class Sms(Totalvoice):
 
         :Utilização:
 
-        getRelatorio(data_inicio, data_fim)
+        get_relatorio(data_inicio, data_fim)
 
         :Parâmetros:
 
@@ -80,9 +80,9 @@ class Sms(Totalvoice):
         format UTC    
 
         """
-        host = self.buildHost(self.cliente.host, Routes.SMS, ["relatorio"])
+        host = self.build_host(self.cliente.host, Routes.SMS, ["relatorio"])
         params = (('data_inicio', data_inicio),('data_fim', data_fim),)
-        return self.getRequest(host, params)
+        return self.get_request(host, params)
 
     def __buildSms(self, numero_destino, mensagem, resposta_usuario, multi_sms):
         data = {}

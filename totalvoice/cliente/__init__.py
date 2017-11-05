@@ -10,7 +10,7 @@ class Cliente(object):
 
     def __init__(self, access_token, host):
         self.access_token = access_token
-        self.host = utils.buildHost(host)
+        self.host = utils.build_host(host)
 
     @property
     def api(self):

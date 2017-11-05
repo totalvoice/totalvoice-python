@@ -16,20 +16,20 @@ class Totalvoice(object):
     def editar(self, *args):
         raise NotImplementedError
     
-    def getRelatorio(self, *args):
+    def get_relatorio(self, *args):
         raise NotImplementedError
         
     def deletar(self, id):
         raise NotImplementedError
 
-    def getRequest(self, host, params = None):
+    def get_request(self, host, params = None):
         if params != None:
-            response = requests.get(host, headers=utils.buildHeader(self.cliente.access_token, params=params))
+            response = requests.get(host, headers=utils.build_header(self.cliente.access_token, params=params))
         else:
-            response = requests.get(host, headers=utils.buildHeader(self.cliente.access_token))
+            response = requests.get(host, headers=utils.build_header(self.cliente.access_token))
         return response.content
 
-    def buildHost(self, host, route, values=None):
+    def build_host(self, host, route, values=None):
         host += route
         if values is not None:
             for val in values:

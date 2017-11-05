@@ -35,9 +35,9 @@ class Audio(Totalvoice):
         - bina:
         Número de bina para a chamada de áudio.
         """
-        host = self.buildHost(self.cliente.host, Routes.AUDIO)
+        host = self.build_host(self.cliente.host, Routes.AUDIO)
         data = self.__buildAudio(numero_destino, url_audio, resposta_usuario, bina)
-        response = requests.post(host, headers=utils.buildHeader(self.cliente.access_token), data=data)
+        response = requests.post(host, headers=utils.build_header(self.cliente.access_token), data=data)
         return response.content
 
     def getById(self, id):
@@ -56,9 +56,9 @@ class Audio(Totalvoice):
         ID do audio.
         """
         host = self.cliente.host + Routes.AUDIO + "/" + id
-        return self.getRequest(host)
+        return self.get_request(host)
     
-    def getRelatorio(self, data_inicio, data_fim):
+    def get_relatorio(self, data_inicio, data_fim):
         """
         :Descrição:
         
@@ -66,7 +66,7 @@ class Audio(Totalvoice):
 
         :Utilização:
 
-        getRelatorio(data_inicio, data_fim)
+        get_relatorio(data_inicio, data_fim)
 
         :Parâmetros:
 
@@ -79,9 +79,9 @@ class Audio(Totalvoice):
         format UTC    
 
         """
-        host = self.buildHost(self.cliente.host, Routes.AUDIO, ["relatorio"])
+        host = self.build_host(self.cliente.host, Routes.AUDIO, ["relatorio"])
         params = (('data_inicio', data_inicio),('data_fim', data_fim),)
-        return self.getRequest(host, params)
+        return self.get_request(host, params)
 
     def __buildAudio(self, numero_destino, url_audio, resposta_usuario=None, bina=None):
         data = {}
