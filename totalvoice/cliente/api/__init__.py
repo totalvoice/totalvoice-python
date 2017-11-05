@@ -4,19 +4,20 @@ from sms import Sms
 from audio import Audio
 from conferencia import Conferencia
 from minhaconta import MinhaConta
+from composto import Composto
 
 class Api(object):
     
-    _cliente        = None
-    _chamada        = None
-    _tts            = None
-    _sms            = None
-    _audio          = None
-    _conferencia    = None
-    _minha_conta    = None
-
     def __init__(self, cliente):
         self._cliente = cliente
+        self._cliente        = None
+        self._chamada        = None
+        self._tts            = None
+        self._sms            = None
+        self._audio          = None
+        self._conferencia    = None
+        self._minha_conta    = None
+        self._composto       = None
     
     @property
     def chamada(self):
@@ -53,3 +54,9 @@ class Api(object):
         if self._minha_conta is None:
             self._minha_conta = MinhaConta(self._cliente)
         return self._minha_conta
+
+    @property
+    def composto(self):
+        if self._composto is None:
+            self._composto = Composto(self._cliente)
+        return self._composto

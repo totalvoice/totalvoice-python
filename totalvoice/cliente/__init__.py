@@ -3,13 +3,10 @@ from totalvoice.helper import utils
 
 class Cliente(object):
       
-    access_token = None
-    host = None
-    _api = None
-
     def __init__(self, access_token, host):
         self.access_token = access_token
         self.host = utils.build_host(host)
+        self._api = None
 
     @property
     def api(self):
@@ -41,3 +38,7 @@ class Cliente(object):
     @property
     def minha_conta(self):
         return self.api.minha_conta
+
+    @property
+    def composto(self):
+        return self.api.composto
