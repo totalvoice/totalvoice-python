@@ -12,7 +12,6 @@ class Api(object):
     
     def __init__(self, cliente):
         self._cliente = cliente
-        self._cliente        = None
         self._chamada        = None
         self._tts            = None
         self._sms            = None

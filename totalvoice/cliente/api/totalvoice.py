@@ -1,8 +1,6 @@
 import requests
-from helper import *
+from helper import utils
 class Totalvoice(object):
-
-    cliente = None
 
     def __init__(self, cliente):
         self.cliente = cliente
