@@ -48,5 +48,13 @@ class Cliente(object):
         return self.api.conta
 
     @property
-    def conta(self):
-        return self.api.central
+    def ramal(self):
+        return self.api.ramal
+
+    @property
+    def ura(self):
+        return self.api.ura
+
+    @property
+    def webphone(self):
+        return self.api.webphone

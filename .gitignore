@@ -1,1 +1,7 @@
 *.pyc
+.vscode/
+Carlos.py
+Teste.py~
+build/
+setup.cfg~
+teste.py

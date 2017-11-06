@@ -6,7 +6,10 @@ from conferencia import Conferencia
 from minhaconta import MinhaConta
 from composto import Composto
 from conta import Conta
-from central import Central
+from central.webphone import Webphone
+from central.ramal import Ramal
+from central.ura import Ura
+
 
 class Api(object):
     
@@ -20,7 +23,9 @@ class Api(object):
         self._minha_conta    = None
         self._composto       = None
         self._conta          = None
-        self._central        = None
+        self._webphone       = None
+        self._ramal          = None
+        self._ura            = None
     
     @property
     def chamada(self):
@@ -71,7 +76,19 @@ class Api(object):
         return self._conta
 
     @property
-    def central(self):
-        if self._central is None:
-            self._central = Central(self._cliente)
-        return self._central
+    def webphone(self):
+        if self._webphone is None:
+            self._webphone = Webphone(self._cliente)
+        return self._webphone
+
+    @property
+    def ura(self):
+        if self._ura is None:
+            self._ura = Ura(self._cliente)
+        return self._ura
+
+    @property
+    def ramal(self):
+        if self._ramal is None:
+            self._ramal = Ramal(self._cliente)
+        return self._ramal
