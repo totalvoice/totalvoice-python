@@ -33,7 +33,7 @@ print(response)
 
 #Get URL da chamada
 id = "1958"
-response = cliente.chamada.getGravacaoChamada(id) 
+response = cliente.chamada.get_gravacao_chamada(id) 
 print(response)
 
 #Relatório de chamada
@@ -46,7 +46,7 @@ print(response)
 id_chamada = "1958"
 numero = "48999999999"
 modo = 1 #1=escuta, 2=sussurro, 3=conferência.
-response = cliente.chamada.escutaChamada(id_chamada, numero, modo)
+response = cliente.chamada.escuta_chamada(id_chamada, numero, modo)
 print(response)
 
 #Deletar
@@ -147,7 +147,7 @@ from totalvoice.cliente import Cliente
 cliente = Cliente("SEU_TOKEN", 'HOST') #ex: api.totalvoice.com.br
 
 #Cria conferência
-response = cliente.conferencia.criaConferencia()
+response = cliente.conferencia.cria_conferencia()
 print(response)
 
 #Get conferência
@@ -156,9 +156,9 @@ response = cliente.conferencia.get_by_id(id)
 print(response)
 
 #Add número na conferência
-idConferencia = "15"
+id_conferencia = "15"
 numero = "48999999999"
-response = cliente.conferencia.addNumeroConferencia(idConferencia, numero)
+response = cliente.conferencia.add_numero_conferencia(id_conferencia, numero)
 print(response)
 
 ```
