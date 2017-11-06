@@ -77,7 +77,7 @@ class MinhaConta(Totalvoice):
         Nome fantasia da conta
         """
         host = self.build_host(self.cliente.host, Routes.CONTA)
-        data = self._buildConta(nome, login, senha, cpf_cnpj, preco_fixo, preco_cel, preco_ramal, email_financeiro, nome_fantasia)
+        data = self.__build_conta(nome, login, senha, cpf_cnpj, preco_fixo, preco_cel, preco_ramal, email_financeiro, nome_fantasia)
         response = requests.put(host, headers=utils.build_header(self.cliente.access_token), data=data)
         return response.content
 
@@ -164,7 +164,7 @@ class MinhaConta(Totalvoice):
         return response.content
 
 
-    def _buildConta(self, nome, login, senha, cpf_cnpj, preco_fixo, preco_cel, preco_ramal, email_financeiro, nome_fantasia):
+    def __build_conta(self, nome, login, senha, cpf_cnpj, preco_fixo, preco_cel, preco_ramal, email_financeiro, nome_fantasia):
         data = {}
         data.update({"nome": nome})
         data.update({"login": login})

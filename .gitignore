@@ -5,3 +5,5 @@ Teste.py~
 build/
 setup.cfg~
 teste.py
+dist/
+totalvoice.egg-info/

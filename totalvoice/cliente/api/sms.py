@@ -37,7 +37,7 @@ class Sms(Totalvoice):
 
         """
         host = self.build_host(self.cliente.host, Routes.SMS)
-        data = self.__buildSms(numero_destino, mensagem, resposta_usuario, multi_sms)
+        data = self.__build_sms(numero_destino, mensagem, resposta_usuario, multi_sms)
         response = requests.post(host, headers=utils.build_header(self.cliente.access_token), data=data)
         return response.content
 
@@ -84,7 +84,7 @@ class Sms(Totalvoice):
         params = (('data_inicio', data_inicio),('data_fim', data_fim),)
         return self.get_request(host, params)
 
-    def __buildSms(self, numero_destino, mensagem, resposta_usuario, multi_sms):
+    def __build_sms(self, numero_destino, mensagem, resposta_usuario, multi_sms):
         data = {}
         data.update({"numero_destino": numero_destino})
         data.update({"mensagem": mensagem})

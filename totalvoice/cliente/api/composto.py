@@ -38,7 +38,7 @@ class Composto(Totalvoice):
         Tags para uso geral
         """
         host = self.build_host(self.cliente.host, Routes.COMPOSTO)
-        data = self._build_composto(numero_destino, dados, bina, tags)
+        data = self.__build_composto(numero_destino, dados, bina, tags)
         response = requests.post(host, headers=utils.build_header(self.cliente.access_token), data=data)
         return response.content
 
@@ -85,7 +85,7 @@ class Composto(Totalvoice):
         params = (('data_inicio', data_inicio),('data_fim', data_fim),)
         return self.get_request(host, params)
 
-    def _build_composto(self, numero_destino, dados, bina, tags):
+    def __build_composto(self, numero_destino, dados, bina, tags):
         data = {}
         data.update({"numero_destino": numero_destino})
         data.update({"dados": dados})

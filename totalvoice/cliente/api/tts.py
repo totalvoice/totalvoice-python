@@ -42,7 +42,7 @@ class Tts(Totalvoice):
         Número e telefone que aparecerá no identificador de quem receber a chamada, formato DDD + Número exemplo: 4832830151.
         """
         host = self.build_host(self.cliente.host, Routes.TTS)
-        data = self.__buildTts(numero_destino, mensagem, velocidade, resposta_usuario, tipo_voz, bina)
+        data = self.__build_tts(numero_destino, mensagem, velocidade, resposta_usuario, tipo_voz, bina)
         response = requests.post(host, headers=utils.build_header(self.cliente.access_token), data=data)
         return response.content
 
@@ -89,7 +89,7 @@ class Tts(Totalvoice):
         params = (('data_inicio', data_inicio),('data_fim', data_fim),)
         return self.get_request(host, params)
 
-    def __buildTts(self, numero_destino, mensagem, velocidade, resposta_usuario, tipo_voz, bina):
+    def __build_tts(self, numero_destino, mensagem, velocidade, resposta_usuario, tipo_voz, bina):
         data = {}
         data.update({"numero_destino": numero_destino})
         data.update({"mensagem": mensagem})

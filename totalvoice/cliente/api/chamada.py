@@ -47,11 +47,11 @@ class Chamada(Totalvoice):
         Campo para passar informações para capturar em webhooks.
         """
         host = self.build_host(self.cliente.host, Routes.CHAMADA)
-        data = self.__buildChamada(numero_origem, numero_destino, data_criacao, gravar_audio, bina_origem, bina_destino, tags)
+        data = self.__build_chamada(numero_origem, numero_destino, data_criacao, gravar_audio, bina_origem, bina_destino, tags)
         response = requests.post(host, headers=utils.build_header(self.cliente.access_token), data=data)
         return response.content
 
-    def escutaChamada(self, id, numero, modo):
+    def escuta_chamada(self, id, numero, modo):
         """
         (BETA - EM TESTES)
         ----------
@@ -62,7 +62,7 @@ class Chamada(Totalvoice):
 
         :Utilização:
         
-        escutaChamada(id, numero, modo)
+        escuta_chamada(id, numero, modo)
 
         :Parâmetros:
 
@@ -119,7 +119,7 @@ class Chamada(Totalvoice):
         host = self.cliente.host + Routes.CHAMADA + "/" + id
         return self.get_request(host)
 
-    def getGravacaoChamada(self, id):
+    def get_gravacao_chamada(self, id):
         """
         :Descrição:
 
@@ -162,7 +162,7 @@ class Chamada(Totalvoice):
         params = (('data_inicio', data_inicio),('data_fim', data_fim),)
         return self.get_request(host, params)
 
-    def __buildChamada(self, numero_origem, numero_destino, data_criacao, gravar_audio, bina_origem, bina_destino, tags):
+    def __build_chamada(self, numero_origem, numero_destino, data_criacao, gravar_audio, bina_origem, bina_destino, tags):
         data = {}
         data.update({"numero_origem": numero_origem})
         data.update({"numero_destino": numero_destino})
