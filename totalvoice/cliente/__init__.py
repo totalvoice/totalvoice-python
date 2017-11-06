@@ -46,3 +46,7 @@ class Cliente(object):
     @property
     def conta(self):
         return self.api.conta
+
+    @property
+    def conta(self):
+        return self.api.central

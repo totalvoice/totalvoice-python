@@ -13,3 +13,4 @@ class Routes(object):
     CONTA_RECARGAS      = "/conta/recargas"
     CONTA_URL_RECARGA   = "/conta/urlrecarga"
     WEBHOOK             = "/webhook"
+    WEBPHONE            = "/webphone"

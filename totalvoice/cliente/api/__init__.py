@@ -6,6 +6,7 @@ from conferencia import Conferencia
 from minhaconta import MinhaConta
 from composto import Composto
 from conta import Conta
+from Central import Central
 
 class Api(object):
     
@@ -20,6 +21,7 @@ class Api(object):
         self._minha_conta    = None
         self._composto       = None
         self._conta          = None
+        self._central        = None
     
     @property
     def chamada(self):
@@ -68,3 +70,9 @@ class Api(object):
         if self._conta is None:
             self._conta = Conta(self._cliente)
         return self._conta
+
+    @property
+    def central(self):
+        if self._central is None:
+            self._central = Central(self._cliente)
+        return self._central
