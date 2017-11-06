@@ -5,6 +5,7 @@ from totalvoice.cliente.api.helper.routes import Routes
 from totalvoice.cliente.api.totalvoice import Totalvoice
 import json, requests
 
+
 class Central(Totalvoice):
 
     def __init__(self, cliente):
@@ -197,6 +198,6 @@ class Central(Totalvoice):
 
     def __build_ura(self, nome, dados):
         data = {}
-        data.update({"numero_destino" : numero_destino})
+        data.update({"nome" : nome})
         data.update({"dados" : dados})
         return json.dumps(data)

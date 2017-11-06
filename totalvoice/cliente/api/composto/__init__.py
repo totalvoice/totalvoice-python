@@ -6,6 +6,7 @@ from totalvoice.cliente.api.helper.routes import Routes
 from totalvoice.cliente.api.totalvoice import Totalvoice
 import json, requests
 
+
 class Composto(Totalvoice):
     
     def __init__(self, cliente):
@@ -87,8 +88,8 @@ class Composto(Totalvoice):
 
     def _build_composto(self, numero_destino, dados, bina, tags):
         data = {}
-        data.update({"numero_destino" : numero_destino})
-        data.update({"dados" : dados})
-        data.update({"bina" : bina})
-        data.update({"tags" : tags})
+        data.update({"numero_destino": numero_destino})
+        data.update({"dados": dados})
+        data.update({"bina": bina})
+        data.update({"tags": tags})
         return json.dumps(data)

@@ -5,12 +5,13 @@ from totalvoice.cliente.api.helper.routes import Routes
 from totalvoice.cliente.api.totalvoice import Totalvoice
 import json, requests
 
+
 class Conferencia(Totalvoice):
 
     def __init__(self, cliente):
         super(Conferencia, self).__init__(cliente)
 
-    def criaConferencia(self):
+    def cria_conferencia(self):
         """
         :Descrição:
 
@@ -18,7 +19,7 @@ class Conferencia(Totalvoice):
 
         :Utilização:
 
-        criaConferencia()
+        cria_conferencia()
 
         """
         host = self.build_host(self.cliente.host, Routes.CONFERENCIA)
@@ -43,7 +44,7 @@ class Conferencia(Totalvoice):
         host = self.cliente.host + Routes.CONFERENCIA + "/" + id
         return self.get_request(host)
 
-    def addNumeroConferencia(self, idConferencia, numero, bina=None, gravar_audio=None):
+    def add_numero_conferencia(self, id_onferencia, numero, bina=None, gravar_audio=None):
         """
         :Descrição:
 
@@ -51,7 +52,7 @@ class Conferencia(Totalvoice):
 
         :Utilização:
 
-        addNumeroConferencia(idConferencia, numero, bina, gravar_audio)
+        add_numero_conferencia(idConferencia, numero, bina, gravar_audio)
 
         :Parâmetros:
 
@@ -67,8 +68,8 @@ class Conferencia(Totalvoice):
         - gravar_audio:
         Flag que indica se o áudio deve ser gravado
         """
-        host = self.cliente.host + Routes.CONFERENCIA + "/" + idConferencia
-        data = self.__buildConferencia(idConferencia, numero, bina, gravar_audio)
+        host = self.cliente.host + Routes.CONFERENCIA + "/" + id_onferencia
+        data = self.__buildConferencia(id_onferencia, numero, bina, gravar_audio)
         response = requests.post(host, headers=utils.build_header(self.cliente.access_token), data=data)
         return response.content
 
@@ -79,11 +80,7 @@ class Conferencia(Totalvoice):
         Função privada para realizar o build dos dados.
         """
         data = {}
-        data.update({"numero" : numero})
-        data.update({"bina" : bina})
-        data.update({"gravar_audio" : gravar_audio})
+        data.update({"numero": numero})
+        data.update({"bina": bina})
+        data.update({"gravar_audio": gravar_audio})
         return json.dumps(data)
-            
-
-    
-    

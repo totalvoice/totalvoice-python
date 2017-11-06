@@ -5,6 +5,7 @@ from totalvoice.cliente.api.helper.routes import Routes
 from totalvoice.cliente.api.totalvoice import Totalvoice
 import json, requests
 
+
 class Conta(Totalvoice):
 
     def __init__(self, cliente):
@@ -151,13 +152,13 @@ class Conta(Totalvoice):
 
     def __buildConta(self, nome, login, senha, cpf_cnpj, preco_fixo, preco_cel, preco_ramal, email_financeiro, nome_fantasia):
         data = {}
-        data.update({"nome" : nome})
-        data.update({"login" : login})
-        data.update({"senha" : senha})
-        data.update({"cpf_cnpj" : cpf_cnpj})
-        data.update({"preco_fixo" : preco_fixo})
-        data.update({"preco_cel" : preco_cel})
-        data.update({"preco_ramal" : preco_ramal})
-        data.update({"email_financeiro" : email_financeiro})
-        data.update({"nome_fantasia" : nome_fantasia})
+        data.update({"nome": nome})
+        data.update({"login": login})
+        data.update({"senha": senha})
+        data.update({"cpf_cnpj": cpf_cnpj})
+        data.update({"preco_fixo": preco_fixo})
+        data.update({"preco_cel": preco_cel})
+        data.update({"preco_ramal": preco_ramal})
+        data.update({"email_financeiro": email_financeiro})
+        data.update({"nome_fantasia": nome_fantasia})
         return json.dumps(data)

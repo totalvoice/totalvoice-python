@@ -5,6 +5,7 @@ from totalvoice.cliente.api.helper.routes import Routes
 from totalvoice.cliente.api.totalvoice import Totalvoice
 import json, requests
 
+
 class Chamada(Totalvoice):
     
     def __init__(self, cliente):
@@ -80,7 +81,6 @@ class Chamada(Totalvoice):
         data.update({"modo" : modo})
         data = json.dumps(data)
         requests.post(host, headers=utils.build_header(self.cliente.access_token), data=data)
-
 
     def deletar(self, id):
         """
@@ -164,11 +164,11 @@ class Chamada(Totalvoice):
 
     def __buildChamada(self, numero_origem, numero_destino, data_criacao, gravar_audio, bina_origem, bina_destino, tags):
         data = {}
-        data.update({"numero_origem" : numero_origem})
-        data.update({"numero_destino" : numero_destino})
-        data.update({"data_criacao" : data_criacao})
-        data.update({"gravar_audio" : gravar_audio})
-        data.update({"bina_origem" : bina_origem})
-        data.update({"bina_destino" : bina_destino})
-        data.update({"tags" : tags})
+        data.update({"numero_origem": numero_origem})
+        data.update({"numero_destino": numero_destino})
+        data.update({"data_criacao": data_criacao})
+        data.update({"gravar_audio": gravar_audio})
+        data.update({"bina_origem": bina_origem})
+        data.update({"bina_destino": bina_destino})
+        data.update({"tags": tags})
         return json.dumps(data)

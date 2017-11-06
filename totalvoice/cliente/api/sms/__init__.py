@@ -6,6 +6,7 @@ from totalvoice.cliente.api.helper.routes import Routes
 from totalvoice.cliente.api.totalvoice import Totalvoice
 import json, requests
 
+
 class Sms(Totalvoice):
     
     def __init__(self, cliente):
@@ -86,8 +87,8 @@ class Sms(Totalvoice):
 
     def __buildSms(self, numero_destino, mensagem, resposta_usuario, multi_sms):
         data = {}
-        data.update({"numero_destino" : numero_destino})
-        data.update({"mensagem" : mensagem})
-        data.update({"resposta_usuario" : resposta_usuario})
-        data.update({"multi_sms" : multi_sms})
+        data.update({"numero_destino": numero_destino})
+        data.update({"mensagem": mensagem})
+        data.update({"resposta_usuario": resposta_usuario})
+        data.update({"multi_sms": multi_sms})
         return json.dumps(data)

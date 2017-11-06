@@ -6,6 +6,7 @@ from totalvoice.cliente.api.helper.routes import Routes
 from totalvoice.cliente.api.totalvoice import Totalvoice
 import json, requests
 
+
 class Audio(Totalvoice):
     
     def __init__(self, cliente):

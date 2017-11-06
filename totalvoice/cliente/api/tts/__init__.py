@@ -6,6 +6,7 @@ from totalvoice.cliente.api.helper.routes import Routes
 from totalvoice.cliente.api.totalvoice import Totalvoice
 import json, requests
 
+
 class Tts(Totalvoice):
 
     def __init__(self, cliente):
@@ -91,10 +92,10 @@ class Tts(Totalvoice):
 
     def __buildTts(self, numero_destino, mensagem, velocidade, resposta_usuario, tipo_voz, bina):
         data = {}
-        data.update({"numero_destino" : numero_destino})
-        data.update({"mensagem" : mensagem})
-        data.update({"velocidade" : velocidade})
-        data.update({"resposta_usuario" : resposta_usuario})
-        data.update({"tipo_voz" : tipo_voz})
-        data.update({"bina" : bina})
+        data.update({"numero_destino": numero_destino})
+        data.update({"mensagem": mensagem})
+        data.update({"velocidade": velocidade})
+        data.update({"resposta_usuario": resposta_usuario})
+        data.update({"tipo_voz": tipo_voz})
+        data.update({"bina": bina})
         return json.dumps(data)
