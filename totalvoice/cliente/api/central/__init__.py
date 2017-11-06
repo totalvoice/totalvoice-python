@@ -166,7 +166,7 @@ class Central(Totalvoice):
         response = requests.put(host, headers=utils.build_header(self.cliente.access_token), data=data)
         return response.content
 
-    def get_webphone(self, tipo="floating", id_ramal, ramal, ligar_para=None, fechar_fim=None):
+    def get_webphone(self, tipo="floating", id_ramal=None, ramal=None, ligar_para=None, fechar_fim=None):
         """
         :Descrição:
         

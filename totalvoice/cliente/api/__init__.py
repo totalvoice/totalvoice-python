@@ -6,7 +6,7 @@ from conferencia import Conferencia
 from minhaconta import MinhaConta
 from composto import Composto
 from conta import Conta
-from Central import Central
+from central import Central
 
 class Api(object):
     
