@@ -23,7 +23,7 @@ except:
 setup(
     # Ver PEP 426 (name)
     # Iniciar ou terminar com letra ou número
-    name='totalvoice-python',
+    name='totalvoice',
 
     # Ver PEP 440
     # O formato pode ser assim:
