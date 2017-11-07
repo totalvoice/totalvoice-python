@@ -1,4 +1,5 @@
 # coding=utf-8
+from __future__ import absolute_import
 from totalvoice.cliente.api.helper import utils
 
 class Cliente(object):
@@ -11,7 +12,7 @@ class Cliente(object):
     @property
     def api(self):
         if self._api is None:
-            from api import Api
+            from totalvoice.cliente.api import Api
             self._api = Api(self)
         return self._api
 

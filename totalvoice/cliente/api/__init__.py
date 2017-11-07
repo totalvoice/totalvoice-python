@@ -1,14 +1,15 @@
-from chamada import Chamada
-from tts import Tts 
-from sms import Sms
-from audio import Audio
-from conferencia import Conferencia
-from minhaconta import MinhaConta
-from composto import Composto
-from conta import Conta
-from central.webphone import Webphone
-from central.ramal import Ramal
-from central.ura import Ura
+from __future__ import absolute_import
+from totalvoice.cliente.api.chamada import Chamada
+from totalvoice.cliente.api.tts import Tts 
+from totalvoice.cliente.api.sms import Sms
+from totalvoice.cliente.api.audio import Audio
+from totalvoice.cliente.api.conferencia import Conferencia
+from totalvoice.cliente.api.minhaconta import MinhaConta
+from totalvoice.cliente.api.composto import Composto
+from totalvoice.cliente.api.conta import Conta
+from totalvoice.cliente.api.central.webphone import Webphone
+from totalvoice.cliente.api.central.ramal import Ramal
+from totalvoice.cliente.api.central.ura import Ura
 
 
 class Api(object):

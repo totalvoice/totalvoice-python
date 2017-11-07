@@ -1,5 +1,6 @@
+from __future__ import absolute_import
 import requests
-from helper import utils
+from .helper import utils
 class Totalvoice(object):
 
     def __init__(self, cliente):

@@ -1,8 +1,8 @@
 # coding=utf-8
-
-from helper import utils
-from helper.routes import Routes
-from totalvoice import Totalvoice
+from __future__ import absolute_import
+from .helper import utils
+from .helper.routes import Routes
+from totalvoice.cliente.api.totalvoice import Totalvoice
 import json, requests
 
 
