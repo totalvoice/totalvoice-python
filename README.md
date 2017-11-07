@@ -1,7 +1,45 @@
 # Totalvoice-python
 Cliente em Python para API da Totalvoice
-[![Build Status](https://travis-ci.org/totalvoice/totalvoice-python.svg?branch=master)]
-3:00"
+
+[![Build Status](https://travis-ci.org/totalvoice/totalvoice-python.svg?branch=master)](https://travis-ci.org/totalvoice/totalvoice-python)
+
+## Pré requisitos
+
+```
+$ pip install totalvoice
+```
+
+## Como utilizar (how to)
+
+Segue abaixo a forma de utilização dos métodos da API da totalvoice!
+
+### Chamadas
+Módulo responsável por criação de chamadas, relatórios de chamadas, url da gravação, etc.
+
+
+```python
+from totalvoice.cliente import Cliente
+
+cliente = Cliente("SEU_TOKEN", 'HOST') #ex: api.totalvoice.com.br
+
+#Cria chamada
+numero_origem = "48999999999"
+numero_destino = "48900000000"
+response = cliente.chamada.enviar(numero_origem, numero_destino)
+print(response)
+
+#Get chamada
+id = "1958"
+response = cliente.chamada.get_by_id(id)
+print(response)
+
+#Get URL da chamada
+id = "1958"
+response = cliente.chamada.get_gravacao_chamada(id) 
+print(response)
+
+#Relatório de chamada
+data_inicio = "2016-03-30T17:15:59-03:00"
 data_fim = "2016-03-30T17:15:59-03:00"
 response = cliente.chamada.get_relatorio(data_inicio, data_fim)
 print(response)
