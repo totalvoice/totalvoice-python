@@ -6,6 +6,6 @@ python:
   - "3.5"
   - "3.6"
 install:
-  - pipenv install requests
+  - pip install requests
 script:
   - pytest tests/cliente.py
