@@ -1,5 +1,5 @@
 # coding=utf-8
-from api.helper import utils
+from totalvoice.cliente.api.helper import utils
 
 class Cliente(object):
       
