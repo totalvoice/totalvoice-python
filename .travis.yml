@@ -9,4 +9,4 @@ install:
   - pip install requests
   - pip install -U pytest
 script:
-  - pytest tests/cliente.py
+  - py.test tests/
