@@ -1,3 +1,4 @@
+# coding=utf-8
 from __future__ import absolute_import
 from totalvoice.cliente.api.chamada import Chamada
 from totalvoice.cliente.api.tts import Tts 
