@@ -32,7 +32,6 @@ class Api(object):
     def chamada(self):
         """
         :Descrição:
-
         Acessa Chamada da Totalvoice
 
         :returns:
