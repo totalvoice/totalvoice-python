@@ -22,8 +22,9 @@ class Totalvoice(object):
         raise NotImplementedError
 
     def get_request(self, host, params = None):
+        print(params)
         if params != None:
-            response = requests.get(host, headers=utils.build_header(self.cliente.access_token, params=params))
+            response = requests.get(host, headers=utils.build_header(self.cliente.access_token), params=params)
         else:
             response = requests.get(host, headers=utils.build_header(self.cliente.access_token))
         return response.content
