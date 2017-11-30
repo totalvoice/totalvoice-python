@@ -208,10 +208,27 @@ class Cliente(object):
 
         :returns:
 
-        WEbphone Totalvoice
+        Webphone Totalvoice
 
         :rtype:
 
         totalvoice.cliente.api.central.webphone.Webphone
         """
         return self.api.webphone
+
+    @property
+    def did(self):
+        """
+        :Descrição:
+
+        Gerenciamento de Dids
+
+        :returns:
+
+        Did Totalvoice
+
+        :rtype:
+
+        totalvoice.cliente.api.did.Did
+        """
+        return self.api.did

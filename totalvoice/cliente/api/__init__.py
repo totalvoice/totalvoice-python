@@ -11,6 +11,7 @@ from totalvoice.cliente.api.conta import Conta
 from totalvoice.cliente.api.central.webphone import Webphone
 from totalvoice.cliente.api.central.ramal import Ramal
 from totalvoice.cliente.api.central.ura import Ura
+from totalvoice.cliente.api.did import Did
 
 
 class Api(object):
@@ -28,6 +29,7 @@ class Api(object):
         self._webphone       = None
         self._ramal          = None
         self._ura            = None
+        self._did            = None
     
     @property
     def chamada(self):
@@ -236,3 +238,22 @@ class Api(object):
         if self._ramal is None:
             self._ramal = Ramal(self._cliente)
         return self._ramal
+
+    @property
+    def did(self):
+        """
+        :Descrição:
+
+        Gerenciamento de dids
+
+        :returns:
+
+        Did Totalvoice
+
+        :rtype:
+
+        totalvoice.cliente.api.did.Did
+        """
+        if self._did is None:
+            self._did = Did(self._cliente)
+        return self._did
