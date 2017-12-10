@@ -108,3 +108,21 @@ class Did(Totalvoice):
         host = self.build_host(self.cliente.host, Routes.DID, [id])
         response = requests.delete(host, headers=utils.build_header(self.cliente.access_token))
         return response.content
+
+    def get_chamada_recebida(self, id):
+        """
+        :Descrição:
+
+        Função para buscar as informações de uma chamada recebida.
+
+        :Utilização:
+
+        get_chamada_recebida(id)
+
+        :Parâmetros:
+
+        - id:
+        ID da chamada ativa.
+        """
+        host = self.cliente.host + Routes.DID_CHAMADA + "/" + id
+        return self.get_request(host)

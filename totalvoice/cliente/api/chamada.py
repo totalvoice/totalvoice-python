@@ -109,7 +109,7 @@ class Chamada(Totalvoice):
 
         :Utilização:
 
-        getChamada(id)
+        get_by_id(id)
 
         :Parâmetros:
 
@@ -127,7 +127,7 @@ class Chamada(Totalvoice):
 
         :Utilização:
 
-        getGravacaoChamada(id)
+        get_gravacao_chamada(id)
 
         :Parâmetros:
 
