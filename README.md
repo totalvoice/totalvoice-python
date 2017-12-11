@@ -165,6 +165,46 @@ print(response)
 
 ```
 
+### DID
+Módulo responsável pelo gerenciamento de did (números de telefone)
+
+```python
+from totalvoice.cliente import Cliente
+
+cliente = Cliente("SEU_TOKEN", 'HOST') #ex: api.totalvoice.com.br
+
+#Lista todos os dids disponíveis em estoque
+response = cliente.did.get_estoque()
+print(response)
+
+#Compra did do estoque
+did_id = "1958"
+response = cliente.did.compra_estoque(did_id)
+print(response)
+
+#Lista todos os dids que a conta possuí
+response = cliente.did.get_my_dids()
+print(response)
+
+#Edita os dados do seu DID, podendo alterar o ramal id e a ura id
+did_id = "1"
+ramal_id = None
+ura_id = "10"
+response = cliente.did.editar(did_id, ura_id, ramal_id)
+print(response)
+
+#Remove o did da conta
+did_id = "1"
+response = cliente.did.deletar(did_id)
+print(response)
+
+#Lista os dados de uma chamada recebida
+chamada_id = "5599"
+response = cliente.did.get_chamada_recebida(chamada_id)
+print(response)
+
+```
+
 
 ## Licença
 
