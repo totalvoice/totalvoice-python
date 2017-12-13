@@ -1,12 +1,16 @@
 language: python
 python:
-  - "2.7"
-  - "3.3"
-  - "3.4"
-  - "3.5"
-  - "3.6"
+- '2.7'
+- '3.3'
+- '3.4'
+- '3.5'
+- '3.6'
 install:
-  - pip install requests
-  - pip install -U pytest
+- pip install requests
+- pip install -U pytest
 script:
-  - py.test tests/
+- py.test tests/
+notifications:
+  slack:
+    rooms:
+      secure: qtDNNTqz9ah+b1nyGQ1sRL9YWnyuLiHu+cbE+jH5IBCKuacstbbxLMfD5l7TTSPAxELRLagOTtBy4OScCpE/eiaj7hBRfjSgoXJt/USJVLte+quxJoSX++B11d853WqVwMdWqFQD0mXBxwmyCSZDCyVkcyhFrhjRZnM/SeS8f6jXCwiS3MDgDY3sMW2IxNHe+wtBi+BX8XzslePc/Lyfkq/X6MxiJJs1SnfXQUe7I6G3fmm134fwHgEYfyWu8mBTIhqQxiF8mE4CHDh3V//zPAiO1GAFdXJPIjqLlEdk4rMERTWJdscPaRc7D0Ffwzg/B41CcA41/WhARYc5+cztyM6rOteDaL6yIJoP6Jq4Q38jgZvmuWTH8b1FZPWctBShro4JIztj9cttQ7vyMQr1oVSrwAzHjP4MVDU9cAftrmfqsCXVrfEw6G2MO9PiJ8pFYsKfEoLC16JnybiEc//aUhjKaoqmw16v996zSLXu/lPDFdVSnhffNMT6VnsBxhu0u2icFJJYiqjSNQbaVkfQtUAdCdFrT7BRwFs+wq7TT8NYYKbQapjcQvooN7dAMHN0Po7tuP9ezvo2zxsZYGhS3W4l6Z2zsHidV+I4RzfLMoO3OVdFjZkdu/5GxXqNVa2PvE32a29kWfzubnbREQFLAdMx+TOT1VG/bhxnndiMGHU=
