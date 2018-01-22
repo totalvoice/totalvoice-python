@@ -73,6 +73,25 @@ class Conferencia(Totalvoice):
         response = requests.post(host, headers=utils.build_header(self.cliente.access_token), data=data)
         return response.content
 
+    def deletar(self, id):
+        """
+        :Descrição:
+
+        Função para remover uma conferência ativa
+
+        :Utilização:
+
+        deletar(id)
+
+        :Parâmetros:
+
+        - id:
+        ID da conferência.
+        """
+        host = self.build_host(self.cliente.host, Routes.CONFERENCIA, [id])
+        response = requests.delete(host, headers=utils.build_header(self.cliente.access_token))
+        return response.content
+
     def __buildConferencia(self, numero, bina, gravar_audio):
         """
         :Descrição:
