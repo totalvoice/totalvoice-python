@@ -152,7 +152,7 @@ class Did(Totalvoice):
 
         """
         host = self.build_host(self.cliente.host, Routes.DID, ["relatorio"])
-        if id not None:
+        if id is not None:
             host = host + id
         params = (('data_inicio', data_inicio),('data_fim', data_fim),)
         return self.get_request(host, params)
