@@ -126,3 +126,33 @@ class Did(Totalvoice):
         """
         host = self.cliente.host + Routes.DID_CHAMADA + "/" + id
         return self.get_request(host)
+
+    def get_relatorio(self, data_inicio, data_fim, id=None):
+        """
+        :Descrição:
+        
+        Função para pegar o relatório de chamadas recebidas.
+
+        :Utilização:
+
+        get_relatorio(data_inicio, data_fim, id)
+
+        :Parâmetros:
+
+        - data_inicio:
+        Data início do relatório (2016-03-30T17:15:59-03:00)
+        format UTC
+
+        - data_fim:
+        Data final do relatório (2016-03-30T17:15:59-03:00)
+        format UTC
+        
+        - id:
+        Se preenchido busca os dados daquele número específico.
+
+        """
+        host = self.build_host(self.cliente.host, Routes.DID, ["relatorio"])
+        if id is not None:
+            host = host + id
+        params = (('data_inicio', data_inicio),('data_fim', data_fim),)
+        return self.get_request(host, params)
