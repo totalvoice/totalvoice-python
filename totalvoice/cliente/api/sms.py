@@ -11,7 +11,7 @@ class Sms(Totalvoice):
     def __init__(self, cliente):
         super(Sms, self).__init__(cliente)
 
-    def enviar(self, numero_destino, mensagem, resposta_usuario=None, multi_sms=None):
+    def enviar(self, numero_destino, mensagem, resposta_usuario=None, multi_sms=None, data_criacao=None):
         """
         :Descrição:
 
@@ -37,7 +37,7 @@ class Sms(Totalvoice):
 
         """
         host = self.build_host(self.cliente.host, Routes.SMS)
-        data = self.__build_sms(numero_destino, mensagem, resposta_usuario, multi_sms)
+        data = self.__build_sms(numero_destino, mensagem, resposta_usuario, multi_sms, data_criacao)
         response = requests.post(host, headers=utils.build_header(self.cliente.access_token), data=data)
         return response.content
 
@@ -84,10 +84,11 @@ class Sms(Totalvoice):
         params = (('data_inicio', data_inicio),('data_fim', data_fim),)
         return self.get_request(host, params)
 
-    def __build_sms(self, numero_destino, mensagem, resposta_usuario, multi_sms):
+    def __build_sms(self, numero_destino, mensagem, resposta_usuario, multi_sms, data_criacao):
         data = {}
         data.update({"numero_destino": numero_destino})
         data.update({"mensagem": mensagem})
         data.update({"resposta_usuario": resposta_usuario})
         data.update({"multi_sms": multi_sms})
+        data.update({"data_criacao": data_criacao})
         return json.dumps(data)
