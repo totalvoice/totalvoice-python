@@ -11,7 +11,7 @@ class Audio(Totalvoice):
     def __init__(self, cliente):
         super(Audio, self).__init__(cliente)
 
-    def enviar(self, numero_destino, url_audio, resposta_usuario=None, bina=None):
+    def enviar(self, numero_destino, url_audio, resposta_usuario=None, bina=None, gravar_audio=None):
         """
         :Descrição:
 
@@ -36,7 +36,7 @@ class Audio(Totalvoice):
         Número de bina para a chamada de áudio.
         """
         host = self.build_host(self.cliente.host, Routes.AUDIO)
-        data = self.__build_audio(numero_destino, url_audio, resposta_usuario, bina)
+        data = self.__build_audio(numero_destino, url_audio, resposta_usuario, bina, gravar_audio)
         response = requests.post(host, headers=utils.build_header(self.cliente.access_token), data=data)
         return response.content
 
@@ -83,10 +83,11 @@ class Audio(Totalvoice):
         params = (('data_inicio', data_inicio),('data_fim', data_fim),)
         return self.get_request(host, params)
 
-    def __build_audio(self, numero_destino, url_audio, resposta_usuario=None, bina=None):
+    def __build_audio(self, numero_destino, url_audio, resposta_usuario=None, bina=None, gravar_audio=None):
         data = {}
         data.update({"numero_destino": numero_destino})
         data.update({"url_audio": url_audio})
         data.update({"resposta_usuario": resposta_usuario})
         data.update({"bina": bina})
+        data.update({"gravar_audio": gravar_audio})
         return json.dumps(data)
