@@ -94,7 +94,7 @@ class MinhaConta(Totalvoice):
         host = self.build_host(self.cliente.host, Routes.CONTA_RECARGAS)
         return self.get_request(host)
 
-    def get_url_recarga(self):
+    def get_url_recarga(self, url_retorno):
         """
         :Descrição:
 
@@ -103,8 +103,15 @@ class MinhaConta(Totalvoice):
         :Utilização:
 
         get_url_recarga()
+
+        :Parâmetros:
+
+        - url_retorno:
+        URL para retorno depois da recarga ou ao cancelar.
         """
-        host = self.build_host(self.cliente.host, Routes.CONTA_URL_RECARGA)
+        data = {}
+        data.update({"url_retorno": url_retorno})
+        host = self.build_host(self.cliente.host, Routes.CONTA_URL_RECARGA, data=data)
         return self.get_request(host)
 
     def get_webhook(self):
