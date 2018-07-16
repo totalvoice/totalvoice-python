@@ -20,7 +20,7 @@ Módulo responsável por criação de chamadas, relatórios de chamadas, url da 
 ```python
 from totalvoice.cliente import Cliente
 
-cliente = Cliente("SEU_TOKEN", 'HOST') #ex: api.totalvoice.com.br
+cliente = Cliente("{{access-token}}", 'HOST') #ex: api.totalvoice.com.br
 
 #Cria chamada
 numero_origem = "48999999999"
@@ -65,7 +65,7 @@ Módulo responsável por criação de SMS, relatórios.
 ```python
 from totalvoice.cliente import Cliente
 
-cliente = Cliente("SEU_TOKEN", 'HOST') #ex: api.totalvoice.com.br
+cliente = Cliente("{{access-token}}", 'HOST') #ex: api.totalvoice.com.br
 
 #Cria sms
 numero_destino = "48999999999"
@@ -92,7 +92,7 @@ Módulo responsável por criação de Audios.
 ```python
 from totalvoice.cliente import Cliente
 
-cliente = Cliente("SEU_TOKEN", 'HOST') #ex: api.totalvoice.com.br
+cliente = Cliente("{{access-token}}", 'HOST') #ex: api.totalvoice.com.br
 
 #Cria audio
 numero = "48999999999"
@@ -119,7 +119,7 @@ Módulo responsável por criação de Audios.
 ```python
 from totalvoice.cliente import Cliente
 
-cliente = Cliente("SEU_TOKEN", 'HOST') #ex: api.totalvoice.com.br
+cliente = Cliente("{{access-token}}", 'HOST') #ex: api.totalvoice.com.br
 
 #Cria TTS
 numero_destino = "48999999999"
@@ -146,7 +146,7 @@ Módulo responsável por criação de Conferências.
 ```python
 from totalvoice.cliente import Cliente
 
-cliente = Cliente("SEU_TOKEN", 'HOST') #ex: api.totalvoice.com.br
+cliente = Cliente("{{access-token}}", 'HOST') #ex: api.totalvoice.com.br
 
 #Cria conferência
 response = cliente.conferencia.cria_conferencia()
@@ -171,7 +171,7 @@ Módulo responsável pelo gerenciamento de did (números de telefone)
 ```python
 from totalvoice.cliente import Cliente
 
-cliente = Cliente("SEU_TOKEN", 'HOST') #ex: api.totalvoice.com.br
+cliente = Cliente("{{access-token}}", 'HOST') #ex: api.totalvoice.com.br
 
 #Lista todos os dids disponíveis em estoque
 response = cliente.did.get_estoque()
