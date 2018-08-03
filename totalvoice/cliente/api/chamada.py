@@ -82,6 +82,69 @@ class Chamada(Totalvoice):
         data = json.dumps(data)
         requests.post(host, headers=utils.build_header(self.cliente.access_token), data=data)
 
+    def transferir(self, id, numero, perna):
+        """
+        (BETA - EM TESTES)
+        ----------
+
+        :Descrição:
+
+        Função para transferir uma chamada em andamento, passa o id, número e a perna.
+
+        :Utilização:
+
+        transferir(id, numero, perna)
+
+        :Parâmetros:
+
+        - id:
+            ID da chamada ativa.
+
+        - numero:
+            Número do seu telefone.
+
+        - perna:
+            Perna da chamada atual que vai ser transferida, destino ou origem.
+        """
+        host = self.build_host(self.cliente.host, Routes.CHAMADA, [id, "transfr"])
+        data = {}
+        data.update({"numero": numero})
+        data.update({"perna": perna})
+        data = json.dumps(data)
+        requests.post(host, headers=utils.build_header(self.cliente.access_token), data=data)
+
+    def avaliar(self, id, nota, comentario):
+        """
+        (BETA - EM TESTES)
+        ----------
+
+        :Descrição:
+
+        Função para avaliar uma chamada em andamento, passa o id, nota e comentario.
+
+        :Utilização:
+
+        avaliar(id, nota, comentario)
+
+        :Parâmetros:
+
+        - id:
+            ID da chamada ativa.
+
+        - numero:
+            Comentario da avaliação.
+
+        - nota:
+            Nota da avaliação.
+        """
+        host = self.build_host(self.cliente.host, Routes.CHAMADA, [id, "avaliar"])
+        data = {}
+        data.update({"nota": nota})
+        data.update({"comentario": comentario})
+        data = json.dumps(data)
+        requests.post(host, headers=utils.build_header(self.cliente.access_token), data=data)
+
+
     def deletar(self, id):
         """
         :Descrição:
