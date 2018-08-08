@@ -8,6 +8,7 @@ from totalvoice.cliente.api.conferencia import Conferencia
 from totalvoice.cliente.api.minhaconta import MinhaConta
 from totalvoice.cliente.api.composto import Composto
 from totalvoice.cliente.api.conta import Conta
+from totalvoice.cliente.api.bina import Bina
 from totalvoice.cliente.api.central.webphone import Webphone
 from totalvoice.cliente.api.central.ramal import Ramal
 from totalvoice.cliente.api.central.ura import Ura
@@ -26,6 +27,7 @@ class Api(object):
         self._minha_conta    = None
         self._composto       = None
         self._conta          = None
+        self._bina           = None
         self._webphone       = None
         self._ramal          = None
         self._ura            = None
@@ -181,6 +183,25 @@ class Api(object):
         if self._conta is None:
             self._conta = Conta(self._cliente)
         return self._conta
+
+    @property
+    def bina(self):
+        """
+        :Descrição:
+
+        Acessa Bina da Totalvoice
+
+        :returns:
+
+        Bina Totalvoice
+
+        :rtype:
+
+        totalvoice.cliente.api.bina.Bina
+        """
+        if self._bina is None:
+            self._bina = Bina(self._cliente)
+        return self._bina
 
     @property
     def webphone(self):

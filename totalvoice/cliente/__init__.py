@@ -166,6 +166,23 @@ class Cliente(object):
         return self.api.conta
 
     @property
+    def bina(self):
+        """
+        :Descrição:
+
+        Acessa Bina da Totalvoice
+
+        :returns:
+
+        Bina Totalvoice
+
+        :rtype:
+
+        totalvoice.cliente.api.bina.Bina
+        """
+        return self.api.bina
+
+    @property
     def ramal(self):
         """
         :Descrição:

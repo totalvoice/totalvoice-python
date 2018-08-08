@@ -49,6 +49,10 @@ class TestCliente(object):
         assert self.cliente.api.conta is not None
         assert isinstance(self.cliente.api.conta, Conta)
 
+    def test_api_bina(self):
+        assert self.cliente.api.bina is not None
+        assert isinstance(self.cliente.api.bina, Bina)
+
     def test_api_webphone(self):
         assert self.cliente.api.webphone is not None
         assert isinstance(self.cliente.api.webphone, Webphone)
