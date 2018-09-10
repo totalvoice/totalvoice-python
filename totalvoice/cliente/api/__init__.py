@@ -13,6 +13,7 @@ from totalvoice.cliente.api.central.webphone import Webphone
 from totalvoice.cliente.api.central.ramal import Ramal
 from totalvoice.cliente.api.central.ura import Ura
 from totalvoice.cliente.api.did import Did
+from totalvoice.cliente.api.fila import Fila
 
 
 class Api(object):
@@ -32,6 +33,7 @@ class Api(object):
         self._ramal          = None
         self._ura            = None
         self._did            = None
+        self._fila           = None
     
     @property
     def chamada(self):
@@ -278,3 +280,22 @@ class Api(object):
         if self._did is None:
             self._did = Did(self._cliente)
         return self._did
+
+    @property
+    def fila(self):
+        """
+        :Descrição:
+
+        Gerenciamento de filas
+
+        :returns:
+
+        Fila Totalvoice
+
+        :rtype:
+
+        totalvoice.cliente.api.fila.Fila
+        """
+        if self._fila is None:
+            self._fila = Fila(self._cliente)
+        return self._fila
