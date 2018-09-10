@@ -249,3 +249,20 @@ class Cliente(object):
         totalvoice.cliente.api.did.Did
         """
         return self.api.did
+
+    @property
+    def fila(self):
+        """
+        :Descrição:
+
+        Gerenciamento de Fila
+
+        :returns:
+
+        Fila Totalvoice
+
+        :rtype:
+
+        totalvoice.cliente.api.fila.Fila
+        """
+        return self.api.fila

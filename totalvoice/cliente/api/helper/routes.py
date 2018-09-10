@@ -18,3 +18,4 @@ class Routes(object):
     DID                 = "/did"
     DID_ESTOQUE         = "/did/estoque"
     DID_CHAMADA         = "/did/chamada"
+    FILA                = "/fila"
