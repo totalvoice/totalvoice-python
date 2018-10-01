@@ -37,7 +37,7 @@ setup(
     # 15.10       Date based release
     # 23          Serial release
 
-    version='1.3.1',
+    version='1.3.2',
 
     
     description='Biblioteca da Totalvoice em python',
