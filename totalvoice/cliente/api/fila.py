@@ -128,7 +128,7 @@ class Fila(Totalvoice):
         - ramal_id:
         ID do ramal.
         """
-        host = self.build_host(self.cliente.host, Routes.FILA, [id], [ramal_id])
+        host = self.build_host(self.cliente.host, Routes.FILA, [id, ramal_id])
         response = requests.delete(host, headers=utils.build_header(self.cliente.access_token))
         return response.content
 
@@ -151,7 +151,7 @@ class Fila(Totalvoice):
         ID do ramal.
 
         """
-        host = self.build_host(self.cliente.host, Routes.FILA, [id], [ramal_id])
+        host = self.build_host(self.cliente.host, Routes.FILA, [id, ramal_id])
         return self.get_request(host)
         
     def __build_fila(self, nome, estrategia_ring, timeout_ring):
