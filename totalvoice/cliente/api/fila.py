@@ -105,6 +105,7 @@ class Fila(Totalvoice):
         - timeout_ring
         Número em segundos para derrubar a chamada da fila.
         """
+        dados = self.__build_fila(nome, estrategia_ring, timeout_ring)
         host = self.build_host(self.cliente.host, Routes.FILA, [id])
         response = requests.put(host, headers=utils.build_header(self.cliente.access_token), data=json.dumps(dados))
         return response.content
