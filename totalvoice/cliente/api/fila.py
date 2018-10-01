@@ -105,7 +105,7 @@ class Fila(Totalvoice):
         - timeout_ring
         Número em segundos para derrubar a chamada da fila.
         """
-        host = self.build_host(self.cliente.host, Routes.Fila, [id])
+        host = self.build_host(self.cliente.host, Routes.FILA, [id])
         response = requests.put(host, headers=utils.build_header(self.cliente.access_token), data=json.dumps(dados))
         return response.content
 
@@ -127,7 +127,7 @@ class Fila(Totalvoice):
         - ramal_id:
         ID do ramal.
         """
-        host = self.build_host(self.cliente.host, Routes.Fila, [id], [ramal_id])
+        host = self.build_host(self.cliente.host, Routes.FILA, [id], [ramal_id])
         response = requests.delete(host, headers=utils.build_header(self.cliente.access_token))
         return response.content
 
