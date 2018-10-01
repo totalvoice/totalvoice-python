@@ -78,7 +78,7 @@ class Fila(Totalvoice):
         """
         host = self.build_host(self.cliente.host, Routes.FILA, [id_fila])
         data = {"ramal_id": ramal_id}
-        response = requests.post(host, headers=utils.build_header(self.cliente.access_token), data=data)
+        response = requests.post(host, headers=utils.build_header(self.cliente.access_token), data=json.dumps(data))
         return response.content
 
     def editar(self, id, nome=None, estrategia_ring=None, timeout_ring=None):
@@ -107,7 +107,7 @@ class Fila(Totalvoice):
         """
         dados = self.__build_fila(nome, estrategia_ring, timeout_ring)
         host = self.build_host(self.cliente.host, Routes.FILA, [id])
-        response = requests.put(host, headers=utils.build_header(self.cliente.access_token), data=json.dumps(dados))
+        response = requests.put(host, headers=utils.build_header(self.cliente.access_token), data=dados)
         return response.content
 
     def deleta_ramal(self, id, ramal_id):
