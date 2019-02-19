@@ -266,3 +266,20 @@ class Cliente(object):
         totalvoice.cliente.api.fila.Fila
         """
         return self.api.fila
+
+    @property
+    def validanumero(self):
+        """
+        :Descrição:
+
+        Validação de numeros
+
+        :returns:
+
+        Fila Totalvoice
+
+        :rtype:
+
+        totalvoice.cliente.api.fila.Fila
+        """
+        return self.api.validanumero
