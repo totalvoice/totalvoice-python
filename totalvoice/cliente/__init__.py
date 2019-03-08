@@ -3,7 +3,7 @@ from __future__ import absolute_import
 from totalvoice.cliente.api.helper import utils
 
 class Cliente(object):
-      
+
     def __init__(self, access_token, host):
         self.access_token = access_token
         self.host = utils.build_host(host)
@@ -45,7 +45,7 @@ class Cliente(object):
         totalvoice.cliente.api.chamada.Chamada
         """
         return self.api.chamada
-    
+
     @property
     def tts(self):
         """
@@ -96,7 +96,7 @@ class Cliente(object):
         totalvoice.cliente.api.sms.Sms
         """
         return self.api.sms
-    
+
     @property
     def conferencia(self):
         """
@@ -266,3 +266,20 @@ class Cliente(object):
         totalvoice.cliente.api.fila.Fila
         """
         return self.api.fila
+
+    @property
+    def valida_numero(self):
+        """
+        :Descrição:
+
+        Gerenciamento de ValidaNumero
+
+        :returns:
+
+        ValidaNumero Totalvoice
+
+        :rtype:
+
+        totalvoice.cliente.api.valida_numero.valida_numero
+        """
+        return self.api.valida_numero
