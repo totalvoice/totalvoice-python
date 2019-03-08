@@ -1,7 +1,7 @@
 # coding=utf-8
 from __future__ import absolute_import
 from totalvoice.cliente.api.chamada import Chamada
-from totalvoice.cliente.api.tts import Tts 
+from totalvoice.cliente.api.tts import Tts
 from totalvoice.cliente.api.sms import Sms
 from totalvoice.cliente.api.audio import Audio
 from totalvoice.cliente.api.conferencia import Conferencia
@@ -14,10 +14,10 @@ from totalvoice.cliente.api.central.ramal import Ramal
 from totalvoice.cliente.api.central.ura import Ura
 from totalvoice.cliente.api.did import Did
 from totalvoice.cliente.api.fila import Fila
-
+from totalvoice.cliente.api.validanumero import ValidaNumero
 
 class Api(object):
-    
+
     def __init__(self, cliente):
         self._cliente = cliente
         self._chamada        = None
@@ -34,7 +34,8 @@ class Api(object):
         self._ura            = None
         self._did            = None
         self._fila           = None
-    
+        self._valida_numero  = None
+
     @property
     def chamada(self):
         """
@@ -52,7 +53,7 @@ class Api(object):
         if self._chamada is None:
             self._chamada = Chamada(self._cliente)
         return self._chamada
-    
+
     @property
     def tts(self):
         """
@@ -71,7 +72,7 @@ class Api(object):
         if self._tts is None:
             self._tts = Tts(self._cliente)
         return self._tts
-    
+
     @property
     def sms(self):
         """
@@ -109,7 +110,7 @@ class Api(object):
         if self._audio is None:
             self._audio = Audio(self._cliente)
         return self._audio
-    
+
     @property
     def conferencia(self):
         """
@@ -299,3 +300,22 @@ class Api(object):
         if self._fila is None:
             self._fila = Fila(self._cliente)
         return self._fila
+
+    @property
+    def valida_numero(self):
+        """
+        :Descrição:
+
+        Gerenciamento de ValiaNumeros
+
+        :returns:
+
+        ValidaNumero Totalvoice
+
+        :rtype:
+
+        totalvoice.cliente.api.valida_numero.valida_numero
+        """
+        if self._valida_numero is None:
+            self._valida_numero = ValidaNumero(self._cliente)
+        return self._valida_numero
