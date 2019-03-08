@@ -59,7 +59,7 @@ class ValidaNumero(Totalvoice):
         """
         :Descrição:
 
-        Função para pegar o relatório de compostos.
+        Função para pegar o relatório de validaNumero.
 
         :Utilização:
 
