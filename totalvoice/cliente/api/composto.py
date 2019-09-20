@@ -11,7 +11,7 @@ class Composto(Totalvoice):
     def __init__(self, cliente):
         super(Composto, self).__init__(cliente)
 
-    def enviar(self, numero_destino, dados, bina=None, tags=None):
+    def enviar(self, numero_destino, dados, bina=None, tags=None, gravar_audio=None, detecta_caixa=None):
         """
         :Descrição:
 
@@ -36,9 +36,16 @@ class Composto(Totalvoice):
 
         - tags:
         Tags para uso geral
+
+        - gravar_audio:
+        Opção para gravar áudio sim/não
+
+        - detecta_caixa:
+        Opção para detecção de caixa postal ao realizar a chamada
         """
+        
         host = self.build_host(self.cliente.host, Routes.COMPOSTO)
-        data = self.__build_composto(numero_destino, dados, bina, tags)
+        data = self.__build_composto(numero_destino, dados, bina, tags, gravar_audio, detecta_caixa)
         response = requests.post(host, headers=utils.build_header(self.cliente.access_token), data=data)
         return response.content
 
@@ -85,10 +92,12 @@ class Composto(Totalvoice):
         params = (('data_inicio', data_inicio),('data_fim', data_fim),)
         return self.get_request(host, params)
 
-    def __build_composto(self, numero_destino, dados, bina, tags):
+    def __build_composto(self, numero_destino, dados, bina, tags, gravar_audio, detecta_caixa):
         data = {}
         data.update({"numero_destino": numero_destino})
         data.update({"dados": dados})
         data.update({"bina": bina})
         data.update({"tags": tags})
+        data.update({"gravar_audio": gravar_audio})
+        data.update({"detecta_caixa": detecta_caixa})
         return json.dumps(data)

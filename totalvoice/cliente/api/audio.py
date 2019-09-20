@@ -11,7 +11,7 @@ class Audio(Totalvoice):
     def __init__(self, cliente):
         super(Audio, self).__init__(cliente)
 
-    def enviar(self, numero_destino, url_audio, resposta_usuario=None, bina=None, gravar_audio=None):
+    def enviar(self, numero_destino, url_audio, resposta_usuario=None, bina=None, gravar_audio=None, detecta_caixa=None):
         """
         :Descrição:
 
@@ -34,9 +34,15 @@ class Audio(Totalvoice):
 
         - bina:
         Número de bina para a chamada de áudio.
+
+        - gravar_audio:
+        Opção para gravar áudio sim/não
+
+        - detecta_caixa:
+        Opção para detecção de caixa postal ao realizar a chamada
         """
         host = self.build_host(self.cliente.host, Routes.AUDIO)
-        data = self.__build_audio(numero_destino, url_audio, resposta_usuario, bina, gravar_audio)
+        data = self.__build_audio(numero_destino, url_audio, resposta_usuario, bina, gravar_audio, detecta_caixa)
         response = requests.post(host, headers=utils.build_header(self.cliente.access_token), data=data)
         return response.content
 
@@ -83,11 +89,12 @@ class Audio(Totalvoice):
         params = (('data_inicio', data_inicio),('data_fim', data_fim),)
         return self.get_request(host, params)
 
-    def __build_audio(self, numero_destino, url_audio, resposta_usuario=None, bina=None, gravar_audio=None):
+    def __build_audio(self, numero_destino, url_audio, resposta_usuario=None, bina=None, gravar_audio=None, detecta_caixa=None):
         data = {}
         data.update({"numero_destino": numero_destino})
         data.update({"url_audio": url_audio})
         data.update({"resposta_usuario": resposta_usuario})
         data.update({"bina": bina})
         data.update({"gravar_audio": gravar_audio})
+        data.update({"detecta_caixa": detecta_caixa})
         return json.dumps(data)
