@@ -149,6 +149,28 @@ class Conta(Totalvoice):
         host = self.build_host(self.cliente.host, Routes.CONTA, ["relatorio"])
         return self.get_request(host)
 
+    def recarga_bonus(self, id, valor):
+        """
+        :Descrição:
+
+        Função para realizar recarga de bônus em uma conta filha
+
+        :Utilização:
+
+        recarga_bonus()
+
+        :Parâmetros:
+        
+        - id:
+        ID da conta filha.
+
+        - valor:
+        Valor a ser creditado como bônus.
+        """
+        host = self.cliente.host + Routes.CONTA + "/" + id + "/bonus"
+        data = json.dumps({"valor": valor})
+        response = requests.post(host, headers=utils.build_header(self.cliente.access_token), data=data)
+        return response.content
 
     def __build_conta(self, nome, login, senha, cpf_cnpj, preco_fixo, preco_cel, preco_ramal, email_financeiro, nome_fantasia):
         data = {}
