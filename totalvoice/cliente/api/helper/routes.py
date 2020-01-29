@@ -14,6 +14,7 @@ class Routes(object):
     CONTA_URL_RECARGA   = "/conta/urlrecarga"
     BINA                = "/bina"
     WEBHOOK             = "/webhook"
+    WEBHOOK_DEFAULT     = "/conta/webhook-default"
     WEBPHONE            = "/webphone"
     DID                 = "/did"
     DID_ESTOQUE         = "/did/estoque"
