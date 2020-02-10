@@ -153,6 +153,28 @@ class Conta(Totalvoice):
         host = self.build_host(self.cliente.host, Routes.CONTA, ["relatorio"])
         return self.get_request(host)
 
+    def recarga_bonus(self, id, valor):
+        """
+        :Descrição:
+
+        Função para realizar recarga de bônus em uma conta filha
+
+        :Utilização:
+
+        recarga_bonus()
+
+        :Parâmetros:
+        
+        - id:
+        ID da conta filha.
+
+        - valor:
+        Valor a ser creditado como bônus.
+        """
+        host = self.cliente.host + Routes.CONTA + "/" + id + "/bonus"
+        data = json.dumps({"valor": valor})
+        response = requests.post(host, headers=utils.build_header(self.cliente.access_token), data=data)
+        return response.content
 
     def __build_conta(self, nome, login, senha, cpf_cnpj, preco_fixo, preco_cel, preco_ramal, email_financeiro, nome_fantasia, valor_aviso_saldo_baixo):
         data = {}
@@ -167,3 +189,59 @@ class Conta(Totalvoice):
         data.update({"nome_fantasia": nome_fantasia})
         data.update({"valor_aviso_saldo_baixo":valor_aviso_saldo_baixo})
         return json.dumps(data)
+    
+    def get_webhook_default(self):
+        """
+        :Descrição:
+
+        Função para obter a lista webhook default da conta.
+
+        :Utilização:
+
+        get_webhook()
+        """
+        host = self.build_host(self.cliente.host, Routes.WEBHOOK_DEFAULT)
+        return self.get_request(host)
+
+    def delete_webhook_default(self, nome_webhook):
+        """
+        :Descrição:
+
+        Função para deletar um webhook default.
+
+        :Utilização:
+
+        get_webhook(nome_webhook)
+
+        :Parâmetros:
+        
+        - nome_webhook:
+        Nome do webhook.
+        """
+        host = self.build_host(self.cliente.host, Routes.WEBHOOK_DEFAULT, [nome_webhook])
+        response = requests.delete(host, headers=utils.build_header(self.cliente.access_token))
+        return response.content
+
+    def edit_webhook_default(self, nome_webhook, url):
+        """
+        :Descrição:
+
+        Função para deletar um webhook default.
+
+        :Utilização:
+
+        editar_webhook(nome_webhook, url)
+
+        :Parâmetros:
+        
+        - nome_webhook:
+        Nome do webhook.
+
+        - url:
+        Url do webhook
+        """
+        host = self.build_host(self.cliente.host, Routes.WEBHOOK_DEFAULT, [nome_webhook])
+        data = {}
+        data.update({"url" : url})
+        response = requests.put(host, headers=utils.build_header(self.cliente.access_token), data=json.dumps(data))
+        return response.content

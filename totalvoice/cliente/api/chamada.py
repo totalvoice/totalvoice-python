@@ -11,7 +11,7 @@ class Chamada(Totalvoice):
     def __init__(self, cliente):
         super(Chamada, self).__init__(cliente)
 
-    def enviar(self, numero_origem, numero_destino, data_criacao=None, gravar_audio=False, bina_origem=None, bina_destino=None, tags=None):
+    def enviar(self, numero_origem, numero_destino, data_criacao=None, gravar_audio=False, bina_origem=None, bina_destino=None, tags=None, detecta_caixa=False):
         """
         :Descrição:
 
@@ -20,7 +20,7 @@ class Chamada(Totalvoice):
 
         :Utilização:
 
-        enviar(numero_origem, numero_destino, data_criacao, gravar_audio, bina_origem, bina_destino, tags)
+        enviar(numero_origem, numero_destino, data_criacao, gravar_audio, bina_origem, bina_destino, tags, detecta_caixa)
 
         :Parâmetros:
         
@@ -45,9 +45,12 @@ class Chamada(Totalvoice):
 
         - tags:
         Campo para passar informações para capturar em webhooks.
+
+        - detecta_caixa:
+        Opção para detecção de caixa postal ao realizar a chamada.
         """
         host = self.build_host(self.cliente.host, Routes.CHAMADA)
-        data = self.__build_chamada(numero_origem, numero_destino, data_criacao, gravar_audio, bina_origem, bina_destino, tags)
+        data = self.__build_chamada(numero_origem, numero_destino, data_criacao, gravar_audio, bina_origem, bina_destino, tags, detecta_caixa)
         response = requests.post(host, headers=utils.build_header(self.cliente.access_token), data=data)
         return response.content
 
@@ -225,7 +228,7 @@ class Chamada(Totalvoice):
         params = (('data_inicio', data_inicio),('data_fim', data_fim),)
         return self.get_request(host, params)
 
-    def __build_chamada(self, numero_origem, numero_destino, data_criacao, gravar_audio, bina_origem, bina_destino, tags):
+    def __build_chamada(self, numero_origem, numero_destino, data_criacao, gravar_audio, bina_origem, bina_destino, tags, detecta_caixa):
         data = {}
         data.update({"numero_origem": numero_origem})
         data.update({"numero_destino": numero_destino})
@@ -234,4 +237,5 @@ class Chamada(Totalvoice):
         data.update({"bina_origem": bina_origem})
         data.update({"bina_destino": bina_destino})
         data.update({"tags": tags})
+        data.update({"detecta_caixa": detecta_caixa})
         return json.dumps(data)
