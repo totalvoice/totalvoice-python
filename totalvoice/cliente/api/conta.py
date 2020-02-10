@@ -214,7 +214,7 @@ class Conta(Totalvoice):
         Nome do webhook.
         """
         host = self.build_host(self.cliente.host, Routes.WEBHOOK_DEFAULT, [nome_webhook])
-        response = requests.delete(host, headers=utils.build_header(self.cliente.access_token), data=None)
+        response = requests.delete(host, headers=utils.build_header(self.cliente.access_token))
         return response.content
 
     def edit_webhook_default(self, nome_webhook, url):
