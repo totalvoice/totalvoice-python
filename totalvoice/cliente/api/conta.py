@@ -184,3 +184,59 @@ class Conta(Totalvoice):
         data.update({"email_financeiro": email_financeiro})
         data.update({"nome_fantasia": nome_fantasia})
         return json.dumps(data)
+    
+    def get_webhook_default(self):
+        """
+        :Descrição:
+
+        Função para obter a lista webhook default da conta.
+
+        :Utilização:
+
+        get_webhook()
+        """
+        host = self.build_host(self.cliente.host, Routes.WEBHOOK_DEFAULT)
+        return self.get_request(host)
+
+    def delete_webhook_default(self, nome_webhook):
+        """
+        :Descrição:
+
+        Função para deletar um webhook default.
+
+        :Utilização:
+
+        get_webhook(nome_webhook)
+
+        :Parâmetros:
+        
+        - nome_webhook:
+        Nome do webhook.
+        """
+        host = self.build_host(self.cliente.host, Routes.WEBHOOK_DEFAULT, [nome_webhook])
+        response = requests.delete(host, headers=utils.build_header(self.cliente.access_token))
+        return response.content
+
+    def edit_webhook_default(self, nome_webhook, url):
+        """
+        :Descrição:
+
+        Função para deletar um webhook default.
+
+        :Utilização:
+
+        editar_webhook(nome_webhook, url)
+
+        :Parâmetros:
+        
+        - nome_webhook:
+        Nome do webhook.
+
+        - url:
+        Url do webhook
+        """
+        host = self.build_host(self.cliente.host, Routes.WEBHOOK_DEFAULT, [nome_webhook])
+        data = {}
+        data.update({"url" : url})
+        response = requests.put(host, headers=utils.build_header(self.cliente.access_token), data=json.dumps(data))
+        return response.content
