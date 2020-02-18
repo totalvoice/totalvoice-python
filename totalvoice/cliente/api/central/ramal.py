@@ -98,3 +98,22 @@ class Ramal(Totalvoice):
         """
         host = self.build_host(self.cliente.host, Routes.RAMAL, ["relatorio"])
         return self.get_request(host)
+    
+    def editarRamalFila(self, id, dados):
+        """
+        :Descrição:
+
+        Função para editar o ramal na fila.
+
+        :Utilização:
+
+        editar(dados)
+
+        :Parâmetros:
+        
+        - dados:
+        Array de dados do ramal.
+        """
+        host = self.build_host(self.cliente.host, Routes.RAMAL, id, Routes.FILA)
+        response = requests.put(host, headers=utils.build_header(self.cliente.access_token), data=json.dumps(dados))
+        return response.content
