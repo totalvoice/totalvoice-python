@@ -114,6 +114,7 @@ class Ramal(Totalvoice):
         - dados:
         Array de dados do ramal.
         """
-        host = self.build_host(self.cliente.host, Routes.RAMAL, id, Routes.FILA)
+        host = self.cliente.host + Routes.RAMAL + "/" + str(id) + Routes.FILA
+        print(host)
         response = requests.put(host, headers=utils.build_header(self.cliente.access_token), data=json.dumps(dados))
         return response.content
