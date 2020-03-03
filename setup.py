@@ -38,7 +38,6 @@ setup(
     # 23          Serial release
 
     version='1.6.0',
-
     
     description='Biblioteca da Totalvoice em python',
     long_description=long_description,

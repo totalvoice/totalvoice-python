@@ -11,7 +11,7 @@ class Conta(Totalvoice):
     def __init__(self, cliente):
         super(Conta, self).__init__(cliente)
 
-    def criar_conta(self, nome, login, senha, cpf_cnpj=None, preco_fixo=None, preco_cel=None, preco_ramal=None, email_financeiro=None, nome_fantasia=None):
+    def criar_conta(self, nome, login, senha, cpf_cnpj=None, preco_fixo=None, preco_cel=None, preco_ramal=None, email_financeiro=None, nome_fantasia=None, valor_aviso_saldo_baixo=None):
         """
         :Descrição:
 
@@ -49,9 +49,13 @@ class Conta(Totalvoice):
 
         - nome_fantasia
         Nome fantasia da conta
+
+        - valor_aviso_saldo_baixo
+        É necessário ser um valor inteiro, ex: 100 .Quando o saldo de créditos atingir ou ficar abaixo do valor determinado, você receberá um aviso no email do email_financeiro(caso este não tenha sido cadastrado você receberá no e-mail de login).
+
         """
         host = self.cliente.host + Routes.CONTA
-        data = self.__build_conta(nome, login, senha, cpf_cnpj, preco_fixo, preco_cel, preco_ramal, email_financeiro, nome_fantasia)
+        data = self.__build_conta(nome, login, senha, cpf_cnpj, preco_fixo, preco_cel, preco_ramal, email_financeiro, nome_fantasia, valor_aviso_saldo_baixo)
         response = requests.post(host, headers=utils.build_header(self.cliente.access_token), data=data)
         return response.content
 
@@ -172,7 +176,7 @@ class Conta(Totalvoice):
         response = requests.post(host, headers=utils.build_header(self.cliente.access_token), data=data)
         return response.content
 
-    def __build_conta(self, nome, login, senha, cpf_cnpj, preco_fixo, preco_cel, preco_ramal, email_financeiro, nome_fantasia):
+    def __build_conta(self, nome, login, senha, cpf_cnpj, preco_fixo, preco_cel, preco_ramal, email_financeiro, nome_fantasia, valor_aviso_saldo_baixo):
         data = {}
         data.update({"nome": nome})
         data.update({"login": login})
@@ -183,6 +187,7 @@ class Conta(Totalvoice):
         data.update({"preco_ramal": preco_ramal})
         data.update({"email_financeiro": email_financeiro})
         data.update({"nome_fantasia": nome_fantasia})
+        data.update({"valor_aviso_saldo_baixo":valor_aviso_saldo_baixo})
         return json.dumps(data)
     
     def get_webhook_default(self):
