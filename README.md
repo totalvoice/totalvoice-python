@@ -205,30 +205,6 @@ print(response)
 
 ```
 
-### Valida Número
-Módulo responsável por validar se o número de telefone informado está ativo ou inativo
-
-```python
-from totalvoice.cliente import Cliente
-
-cliente = Cliente("{{access-token}}", 'HOST') #ex: api.totalvoice.com.br
-
-#cria um registro validaNumero que irá checar se o número é válido
-response = cliente.valida_numero.criar("4811111111");
-print(response)
-
-#Retona um registro de validaNumero
-valida_numero_id = "1958"
-response = cliente.valida_numero.get_valida_numero(valida_numero_id);
-print(response)
-
-#Retorna um relatório de validaNumero por período
-response = cliente.valida_numero.get_relatorio('2019-01-01','2019-05-05');
-print(response)
-
-```
-
-
 ## Licença
 
 MIT
