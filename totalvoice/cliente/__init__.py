@@ -8,7 +8,6 @@ class Cliente(object):
         self.access_token = access_token
         self.host = utils.build_host()
         self._api = None
-        print(access_token)
 
     @property
     def api(self):
