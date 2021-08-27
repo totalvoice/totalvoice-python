@@ -12,7 +12,7 @@ $ pip install totalvoice
 ## Como utilizar (how to)
 
 Segue abaixo a forma de utilização dos métodos da API da totalvoice!
-
+###### Lembrete: A partir a versão `1.7.0` não é possível informar o `HOST` ao instanciar o Cliente.
 ### Chamadas
 Módulo responsável por criação de chamadas, relatórios de chamadas, url da gravação, etc.
 
