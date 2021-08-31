@@ -4,7 +4,7 @@ from totalvoice.cliente.api.helper import utils
 
 class Cliente(object):
 
-    def __init__(self, access_token):
+    def __init__(self, access_token, host = None):
         self.access_token = access_token
         self.host = utils.build_host()
         self._api = None
