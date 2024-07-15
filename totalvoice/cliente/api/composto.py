@@ -32,7 +32,7 @@ class Composto(Totalvoice):
 
         - bina:
         Número e telefone que aparecerá no identificador de quem receber a chamada, formato 
-        DDD + Número exemplo: 4832830151
+        DDD + Número exemplo: +5510999999999
 
         - tags:
         Tags para uso geral

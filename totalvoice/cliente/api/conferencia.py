@@ -60,10 +60,10 @@ class Conferencia(Totalvoice):
         ID da conferência ativa.
 
         - numero:
-        Número do telefone que irá receber a chamada da conferência, formato DDD + Número exemplo: 4832830151
+        Número do telefone que irá receber a chamada da conferência, formato DDD + Número exemplo: +5510999999999
 
         - bina:
-        Número e telefone que aparecerá no identificador de quem receber a chamada, formato DDD + Número exemplo: 4832830151
+        Número e telefone que aparecerá no identificador de quem receber a chamada, formato DDD + Número exemplo: +5510888888888
 
         - gravar_audio:
         Flag que indica se o áudio deve ser gravado
