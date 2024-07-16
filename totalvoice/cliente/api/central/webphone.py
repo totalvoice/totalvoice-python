@@ -32,7 +32,7 @@ class Webphone(Totalvoice):
         Número do ramal para pré-configurar o widget.
 
         - ligar_para:
-        Abrir o webphone ligando para o número, formato DDD + Número exemplo: 4832830151.
+        Abrir o webphone ligando para o número, formato DDD + Número exemplo: +5510999999999.
 
         - fechar_fim:
         Fechar a janela do webphone quando a chamada for encerrada?

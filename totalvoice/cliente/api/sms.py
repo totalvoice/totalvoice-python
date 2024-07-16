@@ -24,7 +24,7 @@ class Sms(Totalvoice):
         :Parâmetros:
         
         - numero_destino:
-        Número do telefone que irá receber a mensagem, formato DDD + Número exemplo: 4832830151
+        Número do telefone que irá receber a mensagem, formato DDD + Número exemplo: +5510999999999
 
         - mensagem:
         Mensagem de texto para ser enviada, limite: 160 caracteres não aceita acentos

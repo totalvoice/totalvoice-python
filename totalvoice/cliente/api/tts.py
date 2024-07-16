@@ -24,7 +24,7 @@ class Tts(Totalvoice):
         :Parâmetros:
         
         - numero_destino:
-        Número do telefone que irá receber a mensagem, formato DDD + Número exemplo: 4832830151.
+        Número do telefone que irá receber a mensagem, formato DDD + Número exemplo: +5510999999999.
 
         - mensagem:
         Mensagem que será lida para o destinatário.
@@ -39,7 +39,7 @@ class Tts(Totalvoice):
         Informe a sigla do idioma concatenado ao nome do personagem que vai falar. Ex: br-Ricardo, br-Vitoria.
 
         - bina:
-        Número e telefone que aparecerá no identificador de quem receber a chamada, formato DDD + Número exemplo: 4832830151.
+        Número e telefone que aparecerá no identificador de quem receber a chamada, formato DDD + Número exemplo: +5510888888888.
 
         - gravar_audio:
         Opção para gravar áudio sim/não

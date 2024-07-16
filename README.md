@@ -12,7 +12,7 @@ $ pip install totalvoice
 ## Como utilizar (how to)
 
 Segue abaixo a forma de utilização dos métodos da API da totalvoice!
-
+###### Lembrete: A partir a versão `1.7.0` não é possível informar o `HOST` ao instanciar o Cliente.
 ### Chamadas
 Módulo responsável por criação de chamadas, relatórios de chamadas, url da gravação, etc.
 
@@ -23,8 +23,8 @@ from totalvoice.cliente import Cliente
 cliente = Cliente("{{access-token}}", 'HOST') #ex: api.totalvoice.com.br
 
 #Cria chamada
-numero_origem = "48999999999"
-numero_destino = "48900000000"
+numero_origem = "+5510999999999"
+numero_destino = "+5510999999999"
 response = cliente.chamada.enviar(numero_origem, numero_destino)
 print(response)
 
@@ -46,7 +46,7 @@ print(response)
 
 #Escutar chamada (BETA)
 id_chamada = "1958"
-numero = "48999999999"
+numero = "+5510999999999"
 modo = 1 #1=escuta, 2=sussurro, 3=conferência.
 response = cliente.chamada.escuta_chamada(id_chamada, numero, modo)
 print(response)
@@ -68,7 +68,7 @@ from totalvoice.cliente import Cliente
 cliente = Cliente("{{access-token}}", 'HOST') #ex: api.totalvoice.com.br
 
 #Cria sms
-numero_destino = "48999999999"
+numero_destino = "+5510999999999"
 mensagem = "teste envio sms"
 response = cliente.sms.enviar(numero_destino, mensagem)
 print(response)
@@ -95,7 +95,7 @@ from totalvoice.cliente import Cliente
 cliente = Cliente("{{access-token}}", 'HOST') #ex: api.totalvoice.com.br
 
 #Cria audio
-numero = "48999999999"
+numero = "+5510999999999"
 url_audio = "http://fooo.bar"
 response = cliente.audio.enviar(numero, url_audio)
 print(response)
@@ -122,7 +122,7 @@ from totalvoice.cliente import Cliente
 cliente = Cliente("{{access-token}}", 'HOST') #ex: api.totalvoice.com.br
 
 #Cria TTS
-numero_destino = "48999999999"
+numero_destino = "+5510999999999"
 mensagem = "Olá, esta mensagem será lida"
 response = cliente.tts.enviar(numero_destino, mensagem)
 print(response)
@@ -159,7 +159,7 @@ print(response)
 
 #Add número na conferência
 id_conferencia = "15"
-numero = "48999999999"
+numero = "+5510999999999"
 response = cliente.conferencia.add_numero_conferencia(id_conferencia, numero)
 print(response)
 
@@ -204,30 +204,6 @@ response = cliente.did.get_chamada_recebida(chamada_id)
 print(response)
 
 ```
-
-### Valida Número
-Módulo responsável por validar se o número de telefone informado está ativo ou inativo
-
-```python
-from totalvoice.cliente import Cliente
-
-cliente = Cliente("{{access-token}}", 'HOST') #ex: api.totalvoice.com.br
-
-#cria um registro validaNumero que irá checar se o número é válido
-response = cliente.valida_numero.criar("4811111111");
-print(response)
-
-#Retona um registro de validaNumero
-valida_numero_id = "1958"
-response = cliente.valida_numero.get_valida_numero(valida_numero_id);
-print(response)
-
-#Retorna um relatório de validaNumero por período
-response = cliente.valida_numero.get_relatorio('2019-01-01','2019-05-05');
-print(response)
-
-```
-
 
 ## Licença
 

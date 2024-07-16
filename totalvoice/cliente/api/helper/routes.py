@@ -20,4 +20,3 @@ class Routes(object):
     DID_ESTOQUE         = "/did/estoque"
     DID_CHAMADA         = "/did/chamada"
     FILA                = "/fila"
-    VALIDA_NUMERO       = "/valida_numero"

@@ -14,7 +14,6 @@ from totalvoice.cliente.api.central.ramal import Ramal
 from totalvoice.cliente.api.central.ura import Ura
 from totalvoice.cliente.api.did import Did
 from totalvoice.cliente.api.fila import Fila
-from totalvoice.cliente.api.validanumero import ValidaNumero
 
 class Api(object):
 
@@ -34,7 +33,6 @@ class Api(object):
         self._ura            = None
         self._did            = None
         self._fila           = None
-        self._valida_numero  = None
 
     @property
     def chamada(self):
@@ -300,22 +298,3 @@ class Api(object):
         if self._fila is None:
             self._fila = Fila(self._cliente)
         return self._fila
-
-    @property
-    def valida_numero(self):
-        """
-        :Descrição:
-
-        Gerenciamento de ValiaNumeros
-
-        :returns:
-
-        ValidaNumero Totalvoice
-
-        :rtype:
-
-        totalvoice.cliente.api.valida_numero.valida_numero
-        """
-        if self._valida_numero is None:
-            self._valida_numero = ValidaNumero(self._cliente)
-        return self._valida_numero

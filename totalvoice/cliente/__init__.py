@@ -4,9 +4,9 @@ from totalvoice.cliente.api.helper import utils
 
 class Cliente(object):
 
-    def __init__(self, access_token, host):
+    def __init__(self, access_token, host = None):
         self.access_token = access_token
-        self.host = utils.build_host(host)
+        self.host = utils.build_host()
         self._api = None
 
     @property
@@ -266,21 +266,3 @@ class Cliente(object):
         totalvoice.cliente.api.fila.Fila
         """
         return self.api.fila
-
-    @property
-
-    def valida_numero(self):
-        """
-        :Descrição:
-
-        Gerenciamento de ValidaNumero
-
-        :returns:
-
-        ValidaNumero Totalvoice
-
-        :rtype:
-
-        totalvoice.cliente.api.valida_numero.valida_numero
-        """
-        return self.api.valida_numero
